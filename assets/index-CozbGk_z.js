@@ -36,7 +36,7 @@
             reject: t
         };
     }
-    const me = 2, fr = 4, _r = 8, vn = 1 << 24, nt = 16, Ze = 32, At = 64, kr = 128, Ve = 512, pe = 1024, we = 2048, Ue = 4096, Ce = 8192, st = 16384, Dt = 32768, Lt = 65536, Ur = 1 << 17, pn = 1 << 18, Kt = 1 << 19, ki = 1 << 20, ot = 1 << 25, St = 65536, Er = 1 << 21, Mr = 1 << 22, lt = 1 << 23, Bt = Symbol("$state"), Ei = Symbol(""), yt = new class extends Error {
+    const me = 2, fr = 4, _r = 8, vn = 1 << 24, nt = 16, Ze = 32, At = 64, kr = 128, Fe = 512, pe = 1024, we = 2048, Ue = 4096, Ce = 8192, st = 16384, Dt = 32768, Lt = 65536, Ur = 1 << 17, pn = 1 << 18, Kt = 1 << 19, ki = 1 << 20, ot = 1 << 25, St = 65536, Er = 1 << 21, Mr = 1 << 22, lt = 1 << 23, Bt = Symbol("$state"), Ei = Symbol(""), yt = new class extends Error {
         name = "StaleReactionError";
         message = "The reaction that called `getAbortSignal()` was re-run or destroyed";
     }, Si = !!globalThis.document?.contentType && globalThis.document.contentType.includes("xml");
@@ -145,7 +145,7 @@
         e.f = e.f & zi | t;
     }
     function Cr(e) {
-        (e.f & Ve) !== 0 || e.deps === null ? se(e, pe) : se(e, Ue);
+        (e.f & Fe) !== 0 || e.deps === null ? se(e, pe) : se(e, Ue);
     }
     function wn(e) {
         if (e !== null) for (const t of e)(t.f & me) === 0 || (t.f & St) === 0 || (t.f ^= St, wn(t.deps));
@@ -331,7 +331,7 @@
                 var r = ct.ensure();
                 if (t++ > 1e3) {
                     var n, i;
-                    Vi();
+                    Fi();
                 }
                 r.process(Ae), ut.clear();
             }
@@ -339,7 +339,7 @@
             Ae = [], Tr = !1, dr = null;
         }
     }
-    function Vi() {
+    function Fi() {
         try {
             Pi();
         } catch (e) {
@@ -410,7 +410,7 @@
             for(var r = e.first; r !== null;)Tn(r, t), r = r.next;
         }
     }
-    function Fi(e) {
+    function Vi(e) {
         let t = 0, r = Tt(0), n;
         return ()=>{
             zr() && (c(r), jn(()=>(t === 0 && (n = Hn(()=>e(()=>Yt(r)))), t += 1, ()=>{
@@ -443,7 +443,7 @@
         #d = new Set;
         #v = new Set;
         #_ = null;
-        #b = Fi(()=>(this.#_ = Tt(this.#u), ()=>{
+        #b = Vi(()=>(this.#_ = Tt(this.#u), ()=>{
                 this.#_ = null;
             }));
         constructor(t, r, n, i){
@@ -717,7 +717,7 @@
         jt || (qe !== null ? (zr() || H?.is_fork) && qe.set(e, t) : Cr(e));
     }
     function Zi(e) {
-        if (e.effects !== null) for (const t of e.effects)(t.teardown || t.ac) && (t.teardown?.(), t.ac?.abort(yt), t.teardown = wi, t.ac = null, Zt(t, 0), Vr(t));
+        if (e.effects !== null) for (const t of e.effects)(t.teardown || t.ac) && (t.teardown?.(), t.ac?.abort(yt), t.teardown = wi, t.ac = null, Zt(t, 0), Fr(t));
     }
     function In(e) {
         if (e.effects !== null) for (const t of e.effects)t.teardown && zt(t);
@@ -745,7 +745,7 @@
         return t || (n.equals = gn), n;
     }
     function p(e, t, r = !1) {
-        B !== null && (!Be || (B.f & Ur) !== 0) && yn() && (B.f & (me | nt | Mr | Ur)) !== 0 && (Fe === null || !Rt.call(Fe, e)) && Ri();
+        B !== null && (!Be || (B.f & Ur) !== 0) && yn() && (B.f & (me | nt | Mr | Ur)) !== 0 && (Ve === null || !Rt.call(Ve, e)) && Ri();
         let n = r ? rt(t) : t;
         return Ct(e, n);
     }
@@ -782,7 +782,7 @@
             var o = r[i], a = o.f, s = (a & we) === 0;
             if (s && se(o, t), (a & me) !== 0) {
                 var l = o;
-                qe?.delete(l), (a & St) === 0 && (a & Ve && (o.f |= St), Rn(l, Ue));
+                qe?.delete(l), (a & St) === 0 && (a & Fe && (o.f |= St), Rn(l, Ue));
             } else s && ((a & nt) !== 0 && Qe !== null && Qe.add(o), We(o));
         }
     }
@@ -979,7 +979,7 @@
             ctx: Ye,
             deps: null,
             nodes: null,
-            f: e | we | Ve,
+            f: e | we | Fe,
             first: null,
             fn: t,
             last: null,
@@ -1053,7 +1053,7 @@
             }
         }
     }
-    function Vr(e, t = !1) {
+    function Fr(e, t = !1) {
         var r = e.first;
         for(e.first = e.last = null; r !== null;){
             const i = r.ac;
@@ -1072,7 +1072,7 @@
     }
     function Re(e, t = !0) {
         var r = !1;
-        (t || (e.f & pn) !== 0) && e.nodes !== null && e.nodes.end !== null && (_o(e.nodes.start, e.nodes.end), r = !0), Vr(e, t && !r), Zt(e, 0), se(e, st);
+        (t || (e.f & pn) !== 0) && e.nodes !== null && e.nodes.end !== null && (_o(e.nodes.start, e.nodes.end), r = !0), Fr(e, t && !r), Zt(e, 0), se(e, st);
         var n = e.nodes && e.nodes.t;
         if (n !== null) for (const o of n)o.stop();
         zn(e);
@@ -1091,7 +1091,7 @@
     }
     function kt(e, t, r = !0) {
         var n = [];
-        Vn(e, n, !0);
+        Fn(e, n, !0);
         var i = ()=>{
             r && Re(e), t && t();
         }, o = n.length;
@@ -1100,26 +1100,26 @@
             for (var s of n)s.out(a);
         } else i();
     }
-    function Vn(e, t, r) {
+    function Fn(e, t, r) {
         if ((e.f & Ce) === 0) {
             e.f ^= Ce;
             var n = e.nodes && e.nodes.t;
             if (n !== null) for (const s of n)(s.is_global || r) && t.push(s);
             for(var i = e.first; i !== null;){
                 var o = i.next, a = (i.f & Lt) !== 0 || (i.f & Ze) !== 0 && (e.f & nt) !== 0;
-                Vn(i, t, a ? r : !1), i = o;
+                Fn(i, t, a ? r : !1), i = o;
             }
         }
     }
-    function Fr(e) {
-        Fn(e, !0);
+    function Vr(e) {
+        Vn(e, !0);
     }
-    function Fn(e, t) {
+    function Vn(e, t) {
         if ((e.f & Ce) !== 0) {
             e.f ^= Ce, (e.f & pe) === 0 && (se(e, we), We(e));
             for(var r = e.first; r !== null;){
                 var n = r.next, i = (r.f & Lt) !== 0 || (r.f & Ze) !== 0;
-                Fn(r, i ? t : !1), r = n;
+                Vn(r, i ? t : !1), r = n;
             }
             var o = e.nodes && e.nodes.t;
             if (o !== null) for (const a of o)(a.is_global || t) && a.in();
@@ -1143,11 +1143,11 @@
     function Xe(e) {
         Z = e;
     }
-    let Fe = null;
+    let Ve = null;
     function vo(e) {
-        B !== null && (Fe === null ? Fe = [
+        B !== null && (Ve === null ? Ve = [
             e
-        ] : Fe.push(e));
+        ] : Ve.push(e));
     }
     let Pe = null, Le = 0, ze = null;
     function po(e) {
@@ -1168,20 +1168,20 @@
                 var o = r[i];
                 if (er(o) && Pn(o), o.wv > e.wv) return !0;
             }
-            (t & Ve) !== 0 && qe === null && se(e, pe);
+            (t & Fe) !== 0 && qe === null && se(e, pe);
         }
         return !1;
     }
     function Bn(e, t, r = !0) {
         var n = e.reactions;
-        if (n !== null && !(Fe !== null && Rt.call(Fe, e))) for(var i = 0; i < n.length; i++){
+        if (n !== null && !(Ve !== null && Rt.call(Ve, e))) for(var i = 0; i < n.length; i++){
             var o = n[i];
             (o.f & me) !== 0 ? Bn(o, t, !1) : t === o && (r ? se(o, we) : (o.f & pe) !== 0 && se(o, Ue), We(o));
         }
     }
     function Un(e) {
-        var t = Pe, r = Le, n = ze, i = B, o = Fe, a = Ye, s = Be, l = Et, u = e.f;
-        Pe = null, Le = 0, ze = null, B = (u & (Ze | At)) === 0 ? e : null, Fe = null, Mt(e.ctx), Be = !1, Et = ++mt, e.ac !== null && (jr(()=>{
+        var t = Pe, r = Le, n = ze, i = B, o = Ve, a = Ye, s = Be, l = Et, u = e.f;
+        Pe = null, Le = 0, ze = null, B = (u & (Ze | At)) === 0 ? e : null, Ve = null, Mt(e.ctx), Be = !1, Et = ++mt, e.ac !== null && (jr(()=>{
             e.ac.abort(yt);
         }), e.ac = null);
         try {
@@ -1193,7 +1193,7 @@
                 var _;
                 if (y || Zt(e, Le), h !== null && Le > 0) for(h.length = Le + Pe.length, _ = 0; _ < Pe.length; _++)h[Le + _] = Pe[_];
                 else e.deps = h = Pe;
-                if (zr() && (e.f & Ve) !== 0) for(_ = Le; _ < h.length; _++)(h[_].reactions ??= []).push(e);
+                if (zr() && (e.f & Fe) !== 0) for(_ = Le; _ < h.length; _++)(h[_].reactions ??= []).push(e);
             } else !y && h !== null && Le < h.length && (Zt(e, Le), h.length = Le);
             if (yn() && ze !== null && !Be && h !== null && (e.f & (me | Ue | we)) === 0) for(_ = 0; _ < ze.length; _++)Bn(ze[_], e);
             if (i !== null && i !== e) {
@@ -1205,7 +1205,7 @@
         } catch (w) {
             return mn(w);
         } finally{
-            e.f ^= Er, Pe = t, Le = r, ze = n, B = i, Fe = o, Mt(a), Be = s, Et = l;
+            e.f ^= Er, Pe = t, Le = r, ze = n, B = i, Ve = o, Mt(a), Be = s, Et = l;
         }
     }
     function ho(e, t) {
@@ -1219,7 +1219,7 @@
         }
         if (r === null && (t.f & me) !== 0 && (Pe === null || !Rt.call(Pe, t))) {
             var o = t;
-            (o.f & Ve) !== 0 && (o.f ^= Ve, o.f &= ~St), Cr(o), Zi(o), Zt(o, 0);
+            (o.f & Fe) !== 0 && (o.f ^= Fe, o.f &= ~St), Cr(o), Zi(o), Zt(o, 0);
         }
     }
     function Zt(e, t) {
@@ -1233,7 +1233,7 @@
             var r = Z, n = or;
             Z = e, or = !0;
             try {
-                (t & (nt | vn)) !== 0 ? fo(e) : Vr(e), zn(e);
+                (t & (nt | vn)) !== 0 ? fo(e) : Fr(e), zn(e);
                 var i = Un(e);
                 e.teardown = typeof i == "function" ? i : null, e.wv = qn;
                 var o;
@@ -1250,7 +1250,7 @@
         var t = e.f, r = (t & me) !== 0;
         if (B !== null && !Be) {
             var n = Z !== null && (Z.f & st) !== 0;
-            if (!n && (Fe === null || !Rt.call(Fe, e))) {
+            if (!n && (Ve === null || !Rt.call(Ve, e))) {
                 var i = B.deps;
                 if ((B.f & Er) !== 0) e.rv < mt && (e.rv = mt, Pe === null && i !== null && i[Le] === e ? Le++ : Pe === null ? Pe = [
                     e
@@ -1271,15 +1271,15 @@
                 var s = a.v;
                 return ((a.f & pe) === 0 && a.reactions !== null || $n(a)) && (s = Nr(a)), ut.set(a, s), s;
             }
-            var l = (a.f & Ve) === 0 && !Be && B !== null && (or || (B.f & Ve) !== 0), u = (a.f & Dt) === 0;
-            er(a) && (l && (a.f |= Ve), Pn(a)), l && !u && (In(a), Yn(a));
+            var l = (a.f & Fe) === 0 && !Be && B !== null && (or || (B.f & Fe) !== 0), u = (a.f & Dt) === 0;
+            er(a) && (l && (a.f |= Fe), Pn(a)), l && !u && (In(a), Yn(a));
         }
         if (qe?.has(e)) return qe.get(e);
         if ((e.f & lt) !== 0) throw e.v;
         return e.v;
     }
     function Yn(e) {
-        if (e.f |= Ve, e.deps !== null) for (const t of e.deps)(t.reactions ??= []).push(e), (t.f & me) !== 0 && (t.f & Ve) === 0 && (In(t), Yn(t));
+        if (e.f |= Fe, e.deps !== null) for (const t of e.deps)(t.reactions ??= []).push(e), (t.f & me) !== 0 && (t.f & Fe) === 0 && (In(t), Yn(t));
     }
     function $n(e) {
         if (e.v === be) return !0;
@@ -1295,9 +1295,9 @@
             Be = t;
         }
     }
-    const Ft = Symbol("events"), Xn = new Set, Ir = new Set;
+    const Vt = Symbol("events"), Xn = new Set, Ir = new Set;
     function X(e, t, r) {
-        (t[Ft] ??= {})[e] = r;
+        (t[Vt] ??= {})[e] = r;
     }
     function Pt(e) {
         for(var t = 0; t < e.length; t++)Xn.add(e[t]);
@@ -1307,11 +1307,11 @@
     function en(e) {
         var t = this, r = t.ownerDocument, n = e.type, i = e.composedPath?.() || [], o = i[0] || e.target;
         Qr = e;
-        var a = 0, s = Qr === e && e[Ft];
+        var a = 0, s = Qr === e && e[Vt];
         if (s) {
             var l = i.indexOf(s);
             if (l !== -1 && (t === document || t === window)) {
-                e[Ft] = t;
+                e[Vt] = t;
                 return;
             }
             var u = i.indexOf(t);
@@ -1331,7 +1331,7 @@
                 for(var h, y = []; o !== null;){
                     var _ = o.assignedSlot || o.parentNode || o.host || null;
                     try {
-                        var w = o[Ft]?.[n];
+                        var w = o[Vt]?.[n];
                         w != null && (!o.disabled || e.target === o) && w.call(o, e);
                     } catch (P) {
                         h ? y.push(P) : h = P;
@@ -1346,7 +1346,7 @@
                     throw h;
                 }
             } finally{
-                e[Ft] = t, delete e.currentTarget, Ge(d), Xe(f);
+                e[Vt] = t, delete e.currentTarget, Ge(d), Xe(f);
             }
         }
     }
@@ -1476,7 +1476,7 @@
             var t = H;
             if (this.#t.has(t)) {
                 var r = this.#t.get(t), n = this.#s.get(r);
-                if (n) Fr(n), this.#o.delete(r);
+                if (n) Vr(n), this.#o.delete(r);
                 else {
                     var i = this.#e.get(r);
                     i && (this.#s.set(r, i.effect), this.#e.delete(r), i.fragment.lastChild.remove(), this.anchor.before(i.fragment), n = i.effect);
@@ -1577,7 +1577,7 @@
             return Lr(P) ? P : P == null ? [] : ur(P);
         }), f, h = !0;
         function y() {
-            w.fallback = u, Oo(w, f, a, t, n), u !== null && (f.length === 0 ? (u.f & ot) === 0 ? Fr(u) : (u.f ^= ot, Gt(u, null, a)) : kt(u, ()=>{
+            w.fallback = u, Oo(w, f, a, t, n), u !== null && (f.length === 0 ? (u.f & ot) === 0 ? Vr(u) : (u.f ^= ot, Gt(u, null, a)) : kt(u, ()=>{
                 u = null;
             }));
         }
@@ -1600,21 +1600,21 @@
         };
         h = !1;
     }
-    function Vt(e) {
+    function Ft(e) {
         for(; e !== null && (e.f & Ze) === 0;)e = e.next;
         return e;
     }
     function Oo(e, t, r, n, i) {
-        var o = t.length, a = e.items, s = Vt(e.effect.first), l, u = null, d = [], f = [], h, y, _, w;
+        var o = t.length, a = e.items, s = Ft(e.effect.first), l, u = null, d = [], f = [], h, y, _, w;
         for(w = 0; w < o; w += 1){
             if (h = t[w], y = i(h, w), _ = a.get(y).e, e.outrogroups !== null) for (const $ of e.outrogroups)$.pending.delete(_), $.done.delete(_);
             if ((_.f & ot) !== 0) if (_.f ^= ot, _ === s) Gt(_, null, r);
             else {
                 var P = u ? u.next : s;
-                _ === e.effect.last && (e.effect.last = _.prev), _.prev && (_.prev.next = _.next), _.next && (_.next.prev = _.prev), it(e, u, _), it(e, _, P), Gt(_, P, r), u = _, d = [], f = [], s = Vt(u.next);
+                _ === e.effect.last && (e.effect.last = _.prev), _.prev && (_.prev.next = _.next), _.next && (_.next.prev = _.prev), it(e, u, _), it(e, _, P), Gt(_, P, r), u = _, d = [], f = [], s = Ft(u.next);
                 continue;
             }
-            if ((_.f & Ce) !== 0 && Fr(_), _ !== s) {
+            if ((_.f & Ce) !== 0 && Vr(_), _ !== s) {
                 if (l !== void 0 && l.has(_)) {
                     if (d.length < f.length) {
                         var I = f[0], L;
@@ -1626,10 +1626,10 @@
                     } else l.delete(_), Gt(_, s, r), it(e, _.prev, _.next), it(e, _, u === null ? e.effect.first : u.next), it(e, u, _), u = _;
                     continue;
                 }
-                for(d = [], f = []; s !== null && s !== _;)(l ??= new Set).add(s), f.push(s), s = Vt(s.next);
+                for(d = [], f = []; s !== null && s !== _;)(l ??= new Set).add(s), f.push(s), s = Ft(s.next);
                 if (s === null) continue;
             }
-            (_.f & ot) === 0 && d.push(_), u = _, s = Vt(_.next);
+            (_.f & ot) === 0 && d.push(_), u = _, s = Ft(_.next);
         }
         if (e.outrogroups !== null) {
             for (const $ of e.outrogroups)$.pending.size === 0 && (Or(ur($.done)), e.outrogroups?.delete($));
@@ -1638,7 +1638,7 @@
         if (s !== null || l !== void 0) {
             var C = [];
             if (l !== void 0) for (_ of l)(_.f & Ce) === 0 && C.push(_);
-            for(; s !== null;)(s.f & Ce) === 0 && s !== e.fallback && C.push(s), s = Vt(s.next);
+            for(; s !== null;)(s.f & Ce) === 0 && s !== e.fallback && C.push(s), s = Ft(s.next);
             var K = C.length;
             if (K > 0) {
                 var q = o === 0 ? r : null;
@@ -1784,7 +1784,7 @@
     function mr(e) {
         return e === "" ? null : +e;
     }
-    const Ko = "modulepreload", Vo = function(e, t) {
+    const Ko = "modulepreload", Fo = function(e, t) {
         return new URL(e, t).href;
     }, an = {}, ve = function(t, r, n) {
         let i = Promise.resolve();
@@ -1800,7 +1800,7 @@
             };
             const s = document.getElementsByTagName("link"), l = document.querySelector("meta[property=csp-nonce]"), u = l?.nonce || l?.getAttribute("nonce");
             i = a(r.map((d)=>{
-                if (d = Vo(d, n), d in an) return;
+                if (d = Fo(d, n), d in an) return;
                 an[d] = !0;
                 const f = d.endsWith(".css"), h = f ? '[rel="stylesheet"]' : "";
                 if (!!n) for(let w = s.length - 1; w >= 0; w--){
@@ -1824,14 +1824,14 @@
             for (const s of a || [])s.status === "rejected" && o(s.reason);
             return t().catch(o);
         });
-    }, Fo = "Browser-based PGP encryption powered by WebAssembly", Go = "All cryptography runs locally in your browser via WebAssembly. No data is sent to any server.", qo = "Loading cryptographic engine...", Wo = "Failed to load WASM module: {error}", Bo = "Encrypt", Uo = "Decrypt", Yo = "Sign", $o = "Verify", Ho = "Keys", Xo = "Encrypt Message", Jo = "Type your message here...", Zo = "Recipients", Qo = "No keys available. Add keys in the Keys tab.", ea = "Encrypt", ta = "Enter a message to encrypt.", ra = "Select at least one recipient key.", na = "(own)", ia = "Decrypt Message", oa = "Paste encrypted PGP message here...", aa = "Passphrase (if key is protected)", sa = "Decrypt", la = "Paste an encrypted PGP message.", ca = "No private keys available. Generate or import a key in the Keys tab.", ua = "Decryption failed. You may not have the correct private key, or the passphrase is wrong.", fa = "Sign Message", _a = "Type your message here...", da = "Passphrase (if key is protected)", va = "Sign", pa = "Enter a message to sign.", ha = "No private keys available. Generate or import a key in the Keys tab.", ga = "Signing failed. Your key may require a passphrase.", ya = "Verify Signature", ba = "Paste signed PGP message here...", ma = "Verify", wa = "Paste a signed PGP message.", xa = "No keys in keyring. Import the signer's public key first.", ka = "Valid Signature", Ea = "Signed by: {name}", Sa = "Verification Failed", Ta = "The signer's key may not be in your keyring.", Aa = "Key Manager", Pa = "Generate", Ia = "Import", Oa = "No keys yet. Generate or import one to get started.", Ra = "(own key)", Da = "(unnamed)", La = "Generate New Key Pair", Ma = "Name", Ca = "Email", Na = "Passphrase (optional)", ja = "Name and email are required.", za = "Cancel", Ka = "Generate", Va = "Generating...", Fa = "Key pair generated!", Ga = "Import Key", qa = "Paste ASCII-armored PGP key...", Wa = "Paste a PGP public or private key.", Ba = "Cancel", Ua = "Import", Ya = "Importing...", $a = "Imported key for {name}.", Ha = "Export", Xa = "Delete", Ja = "Key deleted.", Za = "Public key copied to clipboard.", Qa = "Copy", es = "System", ts = "Light", rs = "Dark", ns = "Skip tutorial", is = "Step {current} of {total}", os = "Next", as = "Back", ss = "Get Started", ls = "Welcome to KeychainPGP", cs = "This quick tutorial will walk you through PGP encryption. You'll create your key pair and decrypt your first secret message.", us = "Create Your Key Pair", fs = "A PGP key pair has two parts: a public key you share with others so they can send you encrypted messages, and a private key you keep secret to decrypt them.", _s = "Generate My Key", ds = "Generating...", vs = "Key pair created and saved!", ps = "Decrypt Your First Message", hs = "We just encrypted a welcome message using your public key. Only your private key can unlock it. Give it a try!", gs = "Decrypt Message", ys = "Message decrypted!", bs = "To exchange encrypted messages with someone, import their public key in the Keys tab. They'll need your public key too.", ms = "You're Ready!", ws = "You've mastered the basics of PGP encryption. Use the tabs above to encrypt, decrypt, sign, and verify messages. Import contacts' public keys in the Keys tab to communicate securely.", xs = `Hello World!
+    }, Vo = "Browser-based PGP encryption powered by WebAssembly", Go = "All cryptography runs locally in your browser via WebAssembly. No data is sent to any server.", qo = "Loading cryptographic engine...", Wo = "Failed to load WASM module: {error}", Bo = "Encrypt", Uo = "Decrypt", Yo = "Sign", $o = "Verify", Ho = "Keys", Xo = "Encrypt Message", Jo = "Type your message here...", Zo = "Recipients", Qo = "No keys available. Add keys in the Keys tab.", ea = "Encrypt", ta = "Enter a message to encrypt.", ra = "Select at least one recipient key.", na = "(own)", ia = "Decrypt Message", oa = "Paste encrypted PGP message here...", aa = "Passphrase (if key is protected)", sa = "Decrypt", la = "Paste an encrypted PGP message.", ca = "No private keys available. Generate or import a key in the Keys tab.", ua = "Decryption failed. You may not have the correct private key, or the passphrase is wrong.", fa = "Sign Message", _a = "Type your message here...", da = "Passphrase (if key is protected)", va = "Sign", pa = "Enter a message to sign.", ha = "No private keys available. Generate or import a key in the Keys tab.", ga = "Signing failed. Your key may require a passphrase.", ya = "Verify Signature", ba = "Paste signed PGP message here...", ma = "Verify", wa = "Paste a signed PGP message.", xa = "No keys in keyring. Import the signer's public key first.", ka = "Valid Signature", Ea = "Signed by: {name}", Sa = "Verification Failed", Ta = "The signer's key may not be in your keyring.", Aa = "Key Manager", Pa = "Generate", Ia = "Import", Oa = "No keys yet. Generate or import one to get started.", Ra = "(own key)", Da = "(unnamed)", La = "Generate New Key Pair", Ma = "Name", Ca = "Email", Na = "Passphrase (optional)", ja = "Name and email are required.", za = "Cancel", Ka = "Generate", Fa = "Generating...", Va = "Key pair generated!", Ga = "Import Key", qa = "Paste ASCII-armored PGP key...", Wa = "Paste a PGP public or private key.", Ba = "Cancel", Ua = "Import", Ya = "Importing...", $a = "Imported key for {name}.", Ha = "Export", Xa = "Delete", Ja = "Key deleted.", Za = "Public key copied to clipboard.", Qa = "Copy", es = "System", ts = "Light", rs = "Dark", ns = "Skip tutorial", is = "Step {current} of {total}", os = "Next", as = "Back", ss = "Get Started", ls = "Welcome to KeychainPGP", cs = "This quick tutorial will walk you through PGP encryption. You'll create your key pair and decrypt your first secret message.", us = "Create Your Key Pair", fs = "A PGP key pair has two parts: a public key you share with others so they can send you encrypted messages, and a private key you keep secret to decrypt them.", _s = "Generate My Key", ds = "Generating...", vs = "Key pair created and saved!", ps = "Decrypt Your First Message", hs = "We just encrypted a welcome message using your public key. Only your private key can unlock it. Give it a try!", gs = "Decrypt Message", ys = "Message decrypted!", bs = "To exchange encrypted messages with someone, import their public key in the Keys tab. They'll need your public key too.", ms = "You're Ready!", ws = "You've mastered the basics of PGP encryption. Use the tabs above to encrypt, decrypt, sign, and verify messages. Import contacts' public keys in the Keys tab to communicate securely.", xs = `Hello World!
 
 Congratulations! You have successfully decrypted your first PGP message.
 
 This message was encrypted with your public key and could only be decrypted with your private key. This is the foundation of PGP: only the intended recipient can read the message.
 
 Enjoy using KeychainPGP!`, ks = "Language", Es = {
-        app_subtitle: Fo,
+        app_subtitle: Vo,
         app_footer: Go,
         loading: qo,
         loading_error: Wo,
@@ -1884,8 +1884,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         keygen_error_required: ja,
         keygen_cancel: za,
         keygen_submit: Ka,
-        keygen_loading: Va,
-        keygen_success: Fa,
+        keygen_loading: Fa,
+        keygen_success: Va,
         import_title: Ga,
         import_placeholder: qa,
         import_error_empty: Wa,
@@ -2166,12 +2166,12 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             k.__wbindgen_add_to_stack_pointer(16);
         }
     }
-    function Vs() {
+    function Fs() {
         return {
             __proto__: null,
             "./keychainpgp_wasm_bg.js": {
                 __proto__: null,
-                __wbg_Error_25ba92dc73c79ff8: function(t, r) {
+                __wbg_Error_ecbf49c1b9d07c30: function(t, r) {
                     const n = Error(wt(t, r));
                     return oe(n);
                 },
@@ -2179,23 +2179,23 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     const n = String(re(r)), i = ke(n, k.__wbindgen_export, k.__wbindgen_export2), o = he;
                     ne().setInt32(t + 4, o, !0), ne().setInt32(t + 0, i, !0);
                 },
-                __wbg___wbindgen_is_function_c2cd65fa64fb6f48: function(t) {
+                __wbg___wbindgen_is_function_18bea6e84080c016: function(t) {
                     return typeof re(t) == "function";
                 },
-                __wbg___wbindgen_is_object_8bdde3c0d4cfc731: function(t) {
+                __wbg___wbindgen_is_object_8d3fac158b36498d: function(t) {
                     const r = re(t);
                     return typeof r == "object" && r !== null;
                 },
-                __wbg___wbindgen_is_string_dfb64101caa98453: function(t) {
+                __wbg___wbindgen_is_string_4d5f2c5b2acf65b0: function(t) {
                     return typeof re(t) == "string";
                 },
-                __wbg___wbindgen_is_undefined_93ede8eff94d1589: function(t) {
+                __wbg___wbindgen_is_undefined_4a711ea9d2e1ef93: function(t) {
                     return re(t) === void 0;
                 },
-                __wbg___wbindgen_throw_f1861aae416df39d: function(t, r) {
+                __wbg___wbindgen_throw_df03e93053e0f4bc: function(t, r) {
                     throw new Error(wt(t, r));
                 },
-                __wbg_call_7d28fcf67f55a9a5: function() {
+                __wbg_call_85e5437fa1ab109d: function() {
                     return ir(function(t, r, n) {
                         const i = re(t).call(re(r), re(n));
                         return oe(i);
@@ -2218,32 +2218,32 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                         re(t).getRandomValues(re(r));
                     }, arguments);
                 },
-                __wbg_getTime_e8d0b9518a240a7a: function(t) {
+                __wbg_getTime_487f639f34f38b76: function(t) {
                     return re(t).getTime();
                 },
-                __wbg_length_9f99fa74b0f6a829: function(t) {
+                __wbg_length_5e07cf181b2745fb: function(t) {
                     return re(t).length;
                 },
                 __wbg_msCrypto_bd5a034af96bcba6: function(t) {
                     const r = re(t).msCrypto;
                     return oe(r);
                 },
-                __wbg_new_0_9a6ba4907af9138a: function() {
+                __wbg_new_0_bde4b243a7001c8c: function() {
                     return oe(new Date);
-                },
-                __wbg_new_1b4edd8807f9a802: function() {
-                    const t = new Object;
-                    return oe(t);
                 },
                 __wbg_new_227d7c05414eb861: function() {
                     const t = new Error;
                     return oe(t);
                 },
-                __wbg_new_dcf435def74b2b31: function() {
+                __wbg_new_62f131e968c83d75: function() {
+                    const t = new Object;
+                    return oe(t);
+                },
+                __wbg_new_66075f8c2ea6575e: function() {
                     const t = new Array;
                     return oe(t);
                 },
-                __wbg_new_with_length_15a4417a8cbc0038: function(t) {
+                __wbg_new_with_length_9b57e4a9683723fa: function(t) {
                     const r = new Uint8Array(t >>> 0);
                     return oe(r);
                 },
@@ -2255,7 +2255,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     const r = re(t).process;
                     return oe(r);
                 },
-                __wbg_prototypesetcall_8d4e3621ad98652b: function(t, r, n) {
+                __wbg_prototypesetcall_d1a7133bc8d83aa9: function(t, r, n) {
                     Uint8Array.prototype.set.call(sn(t, r), re(n));
                 },
                 __wbg_randomFillSync_6c25eac9869eb53c: function() {
@@ -2269,33 +2269,33 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                         return oe(t);
                     }, arguments);
                 },
-                __wbg_set_58d19822a2826a42: function(t, r, n) {
-                    re(t)[r >>> 0] = Ie(n);
-                },
                 __wbg_set_6be42768c690e380: function(t, r, n) {
                     re(t)[Ie(r)] = Ie(n);
+                },
+                __wbg_set_7bf9e2df46e7632c: function(t, r, n) {
+                    re(t)[r >>> 0] = Ie(n);
                 },
                 __wbg_stack_3b0d974bbf31e44f: function(t, r) {
                     const n = re(r).stack, i = ke(n, k.__wbindgen_export, k.__wbindgen_export2), o = he;
                     ne().setInt32(t + 4, o, !0), ne().setInt32(t + 0, i, !0);
                 },
-                __wbg_static_accessor_GLOBAL_88146d31754465df: function() {
-                    const t = typeof global > "u" ? null : global;
-                    return xt(t) ? 0 : oe(t);
-                },
-                __wbg_static_accessor_GLOBAL_THIS_fb1dffa7d2fb9578: function() {
+                __wbg_static_accessor_GLOBAL_THIS_6614f2f4998e3c4c: function() {
                     const t = typeof globalThis > "u" ? null : globalThis;
                     return xt(t) ? 0 : oe(t);
                 },
-                __wbg_static_accessor_SELF_3ebcb3e5cc31b577: function() {
+                __wbg_static_accessor_GLOBAL_d8e8a2fefe80bc1d: function() {
+                    const t = typeof global > "u" ? null : global;
+                    return xt(t) ? 0 : oe(t);
+                },
+                __wbg_static_accessor_SELF_e29eaf7c465526b1: function() {
                     const t = typeof self > "u" ? null : self;
                     return xt(t) ? 0 : oe(t);
                 },
-                __wbg_static_accessor_WINDOW_6370bd11a8e879db: function() {
+                __wbg_static_accessor_WINDOW_66e7ca3eef30585a: function() {
                     const t = typeof window > "u" ? null : window;
                     return xt(t) ? 0 : oe(t);
                 },
-                __wbg_subarray_5306bb93aef983d9: function(t, r, n) {
+                __wbg_subarray_f36da54ffa7114f5: function(t, r, n) {
                     const i = re(t).subarray(r >>> 0, n >>> 0);
                     return oe(i);
                 },
@@ -2326,7 +2326,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         const t = Xt;
         return Xt = tt[t], tt[t] = e, t;
     }
-    function Fs(e) {
+    function Vs(e) {
         e < 1028 || (tt[e] = Xt, Xt = e);
     }
     function sn(e, t) {
@@ -2381,7 +2381,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     }
     function Ie(e) {
         const t = re(e);
-        return Fs(e), t;
+        return Vs(e), t;
     }
     let sr = new TextDecoder("utf-8", {
         ignoreBOM: !0,
@@ -2437,8 +2437,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     }
     async function Us(e) {
         if (k !== void 0) return k;
-        e !== void 0 && (Object.getPrototypeOf(e) === Object.prototype ? { module_or_path: e } = e : console.warn("using deprecated parameters for the initialization function; pass a single object instead")), e === void 0 && (e = new URL("" + new URL("keychainpgp_wasm_bg-G_bVh90s.wasm", import.meta.url).href, import.meta.url));
-        const t = Vs();
+        e !== void 0 && (Object.getPrototypeOf(e) === Object.prototype ? { module_or_path: e } = e : console.warn("using deprecated parameters for the initialization function; pass a single object instead")), e === void 0 && (e = new URL("" + new URL("keychainpgp_wasm_bg-CqrX_3wq.wasm", import.meta.url).href, import.meta.url));
+        const t = Fs();
         (typeof e == "string" || typeof Request == "function" && e instanceof Request || typeof URL == "function" && e instanceof URL) && (e = fetch(e));
         const { instance: r, module: n } = await Bs(await e, t);
         return Ws(r);
@@ -2614,8 +2614,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             try {
                 const x = ii(c(i), c(o), c(a) || void 0), N = Rr(x.public_key);
                 await Dr(x.fingerprint, N.user_ids[0]?.name ?? null, N.user_ids[0]?.email ?? null, x.public_key, x.secret_key), p(d, x.public_key, !0), p(f, x.fingerprint, !0), p(u, !0);
-                const F = g("onboarding_secret_message");
-                p(h, oi(F, [
+                const V = g("onboarding_secret_message");
+                p(h, oi(V, [
                     x.public_key
                 ]), !0);
             } catch (x) {
@@ -2640,18 +2640,18 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             }
         }
         var K = xl(), q = v(K), $ = v(q);
-        vr($, 21, ()=>Array(r), Po, (x, N, F)=>{
+        vr($, 21, ()=>Array(r), Po, (x, N, V)=>{
             var J = sl();
             let ie;
             D(()=>ie = gt(J, 1, "wizard-dot svelte-13krnjv", null, ie, {
-                    active: F === c(n),
-                    completed: F < c(n)
+                    active: V === c(n),
+                    completed: V < c(n)
                 })), A(x, J);
         });
-        var Se = b($, 2), De = v(Se), V = b(q, 2), T = v(V);
+        var Se = b($, 2), De = v(Se), F = b(q, 2), T = v(F);
         {
             var j = (x)=>{
-                var N = ll(), F = et(N), J = v(F), ie = b(F, 2), de = v(ie);
+                var N = ll(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie);
                 D((ge, le)=>{
                     m(J, ge), m(de, le);
                 }, [
@@ -2659,7 +2659,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ()=>g("onboarding_welcome_desc")
                 ]), A(x, N);
             }, z = (x)=>{
-                var N = _l(), F = et(N), J = v(F), ie = b(F, 2), de = v(ie), ge = b(ie, 2);
+                var N = _l(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2);
                 {
                     var le = (te)=>{
                         var ce = cl(), Q = v(ce);
@@ -2698,7 +2698,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ()=>g("onboarding_gen_desc")
                 ]), A(x, N);
             }, ee = (x)=>{
-                var N = hl(), F = et(N), J = v(F), ie = b(F, 2), de = v(ie), ge = b(ie, 2), le = v(ge), je = b(ge, 2);
+                var N = hl(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2), le = v(ge), je = b(ge, 2);
                 {
                     var te = (fe)=>{
                         var G = dl(), Ee = et(G), ye = v(Ee), Te = b(Ee, 2), ae = v(Te);
@@ -2738,7 +2738,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ()=>g("onboarding_msg_tip")
                 ]), A(x, N);
             }, _e = (x)=>{
-                var N = gl(), F = et(N), J = v(F), ie = b(F, 2), de = v(ie);
+                var N = gl(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie);
                 D((ge, le)=>{
                     m(J, ge), m(de, le);
                 }, [
@@ -2750,11 +2750,11 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 c(n) === 0 ? x(j) : c(n) === 1 ? x(z, 1) : c(n) === 2 ? x(ee, 2) : c(n) === 3 && x(_e, 3);
             });
         }
-        var Ne = b(V, 2), $e = v(Ne);
+        var Ne = b(F, 2), $e = v(Ne);
         {
             var pt = (x)=>{
-                var N = yl(), F = v(N);
-                D((J)=>m(F, J), [
+                var N = yl(), V = v(N);
+                D((J)=>m(V, J), [
                     ()=>g("onboarding_prev")
                 ]), X("click", N, L), A(x, N);
             }, He = (x)=>{
@@ -2768,15 +2768,15 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         var R = b($e, 2);
         {
             var W = (x)=>{
-                var N = ml(), F = v(N);
+                var N = ml(), V = v(N);
                 D((J)=>{
-                    N.disabled = c(n) === 1 && !c(u), m(F, J);
+                    N.disabled = c(n) === 1 && !c(u), m(V, J);
                 }, [
                     ()=>g("onboarding_next")
                 ]), X("click", N, E), A(x, N);
             }, U = (x)=>{
-                var N = wl(), F = v(N);
-                D((J)=>m(F, J), [
+                var N = wl(), V = v(N);
+                D((J)=>m(V, J), [
                     ()=>g("onboarding_finish")
                 ]), X("click", N, I), A(x, N);
             };
@@ -2799,8 +2799,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             p(o, await tr(), !0);
         }
         s();
-        function l(V) {
-            c(a).has(V) ? c(a).delete(V) : c(a).add(V), p(a, new Set(c(a)), !0);
+        function l(F) {
+            c(a).has(F) ? c(a).delete(F) : c(a).add(F), p(a, new Set(c(a)), !0);
         }
         function u() {
             if (p(i, ""), p(n, ""), !c(r).trim()) {
@@ -2812,10 +2812,10 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 return;
             }
             try {
-                const V = c(o).filter((T)=>c(a).has(T.fingerprint)).map((T)=>T.publicKey);
-                p(n, oi(c(r), V), !0);
-            } catch (V) {
-                p(i, String(V), !0);
+                const F = c(o).filter((T)=>c(a).has(T.fingerprint)).map((T)=>T.publicKey);
+                p(n, oi(c(r), F), !0);
+            } catch (F) {
+                p(i, String(F), !0);
             }
         }
         async function d() {
@@ -2823,12 +2823,12 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         }
         var f = Ol(), h = v(f), y = v(h), _ = b(h, 2), w = b(_, 2), P = v(w), I = v(P), L = b(P, 2);
         {
-            var E = (V)=>{
+            var E = (F)=>{
                 var T = El(), j = v(T);
                 D((z)=>m(j, z), [
                     ()=>g("encrypt_no_keys")
-                ]), A(V, T);
-            }, M = (V)=>{
+                ]), A(F, T);
+            }, M = (F)=>{
                 var T = Al();
                 vr(T, 21, ()=>c(o), (j)=>j.fingerprint, (j, z)=>{
                     var ee = Tl();
@@ -2854,45 +2854,45 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                         ()=>c(a).has(c(z).fingerprint),
                         ()=>c(z).name ?? c(z).email ?? c(z).fingerprint.slice(-16)
                     ]), X("change", Ne, ()=>l(c(z).fingerprint)), A(j, ee);
-                }), A(V, T);
+                }), A(F, T);
             };
-            Y(L, (V)=>{
-                c(o).length === 0 ? V(E) : V(M, !1);
+            Y(L, (F)=>{
+                c(o).length === 0 ? F(E) : F(M, !1);
             });
         }
         var C = b(w, 2), K = v(C), q = b(C, 2);
         {
-            var $ = (V)=>{
+            var $ = (F)=>{
                 var T = Pl(), j = v(T);
-                D(()=>m(j, c(i))), A(V, T);
+                D(()=>m(j, c(i))), A(F, T);
             };
-            Y(q, (V)=>{
-                c(i) && V($);
+            Y(q, (F)=>{
+                c(i) && F($);
             });
         }
         var Se = b(q, 2);
         {
-            var De = (V)=>{
+            var De = (F)=>{
                 var T = Il(), j = v(T), z = b(j, 2), ee = v(z);
                 D((_e)=>{
                     Gr(j, c(n)), m(ee, _e);
                 }, [
                     ()=>g("copy_btn")
-                ]), X("click", z, d), A(V, T);
+                ]), X("click", z, d), A(F, T);
             };
-            Y(Se, (V)=>{
-                c(n) && V(De);
+            Y(Se, (F)=>{
+                c(n) && F(De);
             });
         }
-        D((V, T, j, z, ee)=>{
-            m(y, V), Oe(_, "placeholder", T), m(I, j), C.disabled = z, m(K, ee);
+        D((F, T, j, z, ee)=>{
+            m(y, F), Oe(_, "placeholder", T), m(I, j), C.disabled = z, m(K, ee);
         }, [
             ()=>g("encrypt_title"),
             ()=>g("encrypt_placeholder"),
             ()=>g("encrypt_recipients"),
             ()=>!c(r).trim() || c(a).size === 0,
             ()=>g("encrypt_btn")
-        ]), Me(_, ()=>c(r), (V)=>p(r, V)), X("click", C, u), A(e, f), dt();
+        ]), Me(_, ()=>c(r), (F)=>p(r, F)), X("click", C, u), A(e, f), dt();
     }
     Pt([
         "change",
@@ -3024,7 +3024,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     Pt([
         "click"
     ]);
-    var Vl = O('<p class="error"> </p>'), Fl = O('<p style="font-size: 0.75rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p>'), Gl = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-success); background: rgba(34, 197, 94, 0.1);"><p class="success" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p> <!></div>'), ql = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-danger); background: rgba(239, 68, 68, 0.1);"><p class="error" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p></div>'), Wl = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <button class="btn btn-primary"> </button> <!> <!></div>');
+    var Fl = O('<p class="error"> </p>'), Vl = O('<p style="font-size: 0.75rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p>'), Gl = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-success); background: rgba(34, 197, 94, 0.1);"><p class="success" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p> <!></div>'), ql = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-danger); background: rgba(239, 68, 68, 0.1);"><p class="error" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p></div>'), Wl = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <button class="btn btn-primary"> </button> <!> <!></div>');
     function Bl(e, t) {
         _t(t, !0);
         let r = S(""), n = S(null), i = S(""), o = S("");
@@ -3056,7 +3056,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         var s = Wl(), l = v(s), u = v(l), d = b(l, 2), f = b(d, 2), h = v(f), y = b(f, 2);
         {
             var _ = (I)=>{
-                var L = Vl(), E = v(L);
+                var L = Fl(), E = v(L);
                 D(()=>m(E, c(o))), A(I, L);
             };
             Y(y, (I)=>{
@@ -3069,10 +3069,10 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 var L = wo(), E = et(L);
                 {
                     var M = (K)=>{
-                        var q = Gl(), $ = v(q), Se = v($), De = b($, 2), V = v(De), T = b(De, 2);
+                        var q = Gl(), $ = v(q), Se = v($), De = b($, 2), F = v(De), T = b(De, 2);
                         {
                             var j = (z)=>{
-                                var ee = Fl(), _e = v(ee);
+                                var ee = Vl(), _e = v(ee);
                                 D(()=>m(_e, c(n).fingerprint)), A(z, ee);
                             };
                             Y(T, (z)=>{
@@ -3080,7 +3080,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                             });
                         }
                         D((z, ee)=>{
-                            m(Se, z), m(V, ee);
+                            m(Se, z), m(F, ee);
                         }, [
                             ()=>g("verify_valid"),
                             ()=>g("verify_signed_by", {
@@ -3088,9 +3088,9 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                                 })
                         ]), A(K, q);
                     }, C = (K)=>{
-                        var q = ql(), $ = v(q), Se = v($), De = b($, 2), V = v(De);
+                        var q = ql(), $ = v(q), Se = v($), De = b($, 2), F = v(De);
                         D((T, j)=>{
-                            m(Se, T), m(V, j);
+                            m(Se, T), m(F, j);
                         }, [
                             ()=>g("verify_failed"),
                             ()=>g("verify_signer_not_found")
@@ -3164,7 +3164,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         async function L(R) {
             await navigator.clipboard.writeText(R.publicKey), p(y, g("key_exported"), !0), setTimeout(()=>p(y, ""), 3e3);
         }
-        var E = tc(), M = v(E), C = v(M), K = v(C), q = b(C, 2), $ = v(q), Se = v($), De = b($, 2), V = v(De), T = b(M, 2);
+        var E = tc(), M = v(E), C = v(M), K = v(C), q = b(C, 2), $ = v(q), Se = v($), De = b($, 2), F = v(De), T = b(M, 2);
         {
             var j = (R)=>{
                 var W = Ul(), U = v(W);
@@ -3177,7 +3177,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         var z = b(T, 2);
         {
             var ee = (R)=>{
-                var W = $l(), U = v(W), x = v(U), N = b(U, 2), F = b(N, 2), J = b(F, 2), ie = b(J, 2);
+                var W = $l(), U = v(W), x = v(U), N = b(U, 2), V = b(N, 2), J = b(V, 2), ie = b(J, 2);
                 {
                     var de = (Q)=>{
                         var ue = Yl(), fe = v(ue);
@@ -3189,7 +3189,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 }
                 var ge = b(ie, 2), le = v(ge), je = v(le), te = b(le, 2), ce = v(te);
                 D((Q, ue, fe, G, Ee, ye)=>{
-                    m(x, Q), Oe(N, "placeholder", ue), Oe(F, "placeholder", fe), Oe(J, "placeholder", G), m(je, Ee), te.disabled = c(u), m(ce, ye);
+                    m(x, Q), Oe(N, "placeholder", ue), Oe(V, "placeholder", fe), Oe(J, "placeholder", G), m(je, Ee), te.disabled = c(u), m(ce, ye);
                 }, [
                     ()=>g("keygen_title"),
                     ()=>g("keygen_name"),
@@ -3197,7 +3197,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ()=>g("keygen_passphrase"),
                     ()=>g("keygen_cancel"),
                     ()=>c(u) ? g("keygen_loading") : g("keygen_submit")
-                ]), Me(N, ()=>c(o), (Q)=>p(o, Q)), Me(F, ()=>c(a), (Q)=>p(a, Q)), Me(J, ()=>c(s), (Q)=>p(s, Q)), X("click", le, ()=>p(n, !1)), X("click", te, w), A(R, W);
+                ]), Me(N, ()=>c(o), (Q)=>p(o, Q)), Me(V, ()=>c(a), (Q)=>p(a, Q)), Me(J, ()=>c(s), (Q)=>p(s, Q)), X("click", le, ()=>p(n, !1)), X("click", te, w), A(R, W);
             };
             Y(z, (R)=>{
                 c(n) && R(ee);
@@ -3206,17 +3206,17 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         var _e = b(z, 2);
         {
             var Ne = (R)=>{
-                var W = Xl(), U = v(W), x = v(U), N = b(U, 2), F = b(N, 2);
+                var W = Xl(), U = v(W), x = v(U), N = b(U, 2), V = b(N, 2);
                 {
                     var J = (te)=>{
                         var ce = Hl(), Q = v(ce);
                         D(()=>m(Q, c(f))), A(te, ce);
                     };
-                    Y(F, (te)=>{
+                    Y(V, (te)=>{
                         c(f) && te(J);
                     });
                 }
-                var ie = b(F, 2), de = v(ie), ge = v(de), le = b(de, 2), je = v(le);
+                var ie = b(V, 2), de = v(ie), ge = v(de), le = b(de, 2), je = v(le);
                 D((te, ce, Q, ue)=>{
                     m(x, te), Oe(N, "placeholder", ce), m(ge, Q), le.disabled = c(h), m(je, ue);
                 }, [
@@ -3240,7 +3240,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             }, He = (R)=>{
                 var W = ec();
                 vr(W, 21, ()=>c(r), (U)=>U.fingerprint, (U, x)=>{
-                    var N = Ql(), F = v(N), J = v(F), ie = v(J), de = b(ie);
+                    var N = Ql(), V = v(N), J = v(V), ie = v(J), de = b(ie);
                     {
                         var ge = (ye)=>{
                             var Te = Zl(), ae = v(Te);
@@ -3252,7 +3252,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                             c(x).isOwn && ye(ge);
                         });
                     }
-                    var le = b(J, 2), je = v(le), te = b(le, 2), ce = v(te), Q = b(F, 2), ue = v(Q), fe = v(ue), G = b(ue, 2), Ee = v(G);
+                    var le = b(J, 2), je = v(le), te = b(le, 2), ce = v(te), Q = b(V, 2), ue = v(Q), fe = v(ue), G = b(ue, 2), Ee = v(G);
                     D((ye, Te, ae, xe)=>{
                         m(ie, `${ye ?? ""} `), m(je, c(x).email ?? ""), m(ce, Te), m(fe, ae), m(Ee, xe);
                     }, [
@@ -3268,7 +3268,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             });
         }
         D((R, W, U)=>{
-            m(K, R), m(Se, W), m(V, U);
+            m(K, R), m(Se, W), m(F, U);
         }, [
             ()=>g("keys_title"),
             ()=>g("keys_generate_btn"),
@@ -3354,9 +3354,9 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 let R;
                 var W = v(He), U = b(He, 2);
                 let x;
-                var N = v(U), F = b(U, 2);
+                var N = v(U), V = b(U, 2);
                 let J;
-                var ie = v(F), de = b(F, 2);
+                var ie = v(V), de = b(V, 2);
                 let ge;
                 var le = v(de), je = b(_e, 2);
                 {
@@ -3382,7 +3382,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                         active: c(i) === "decrypt"
                     }), m(W, Ee), x = gt(U, 1, "tab", null, x, {
                         active: c(i) === "sign"
-                    }), m(N, ye), J = gt(F, 1, "tab", null, J, {
+                    }), m(N, ye), J = gt(V, 1, "tab", null, J, {
                         active: c(i) === "verify"
                     }), m(ie, Te), ge = gt(de, 1, "tab", null, ge, {
                         active: c(i) === "keys"
@@ -3393,15 +3393,15 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ()=>g("tab_sign"),
                     ()=>g("tab_verify"),
                     ()=>g("tab_keys")
-                ]), X("click", Ne, ()=>p(i, "encrypt")), X("click", He, ()=>p(i, "decrypt")), X("click", U, ()=>p(i, "sign")), X("click", F, ()=>p(i, "verify")), X("click", de, ()=>p(i, "keys")), A(T, j);
+                ]), X("click", Ne, ()=>p(i, "encrypt")), X("click", He, ()=>p(i, "decrypt")), X("click", U, ()=>p(i, "sign")), X("click", V, ()=>p(i, "verify")), X("click", de, ()=>p(i, "keys")), A(T, j);
             };
             Y(C, (T)=>{
                 c(n) ? T(K) : c(r) ? T($, !1) : T(q, 1);
             });
         }
-        var Se = b(C, 2), De = v(Se), V = v(De);
+        var Se = b(C, 2), De = v(Se), F = v(De);
         D((T, j, z, ee)=>{
-            _ !== (_ = T) && (y.value = (y.__value = T) ?? "", Qn(y, T)), Oe(w, "title", j), m(M, z), m(V, ee);
+            _ !== (_ = T) && (y.value = (y.__value = T) ?? "", Qn(y, T)), Oe(w, "title", j), m(M, z), m(F, ee);
         }, [
             Rs,
             ()=>c(o) === "light" ? g("theme_light") : g("theme_dark"),
