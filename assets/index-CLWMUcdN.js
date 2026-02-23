@@ -76,13 +76,13 @@
     function gn(e) {
         return !Ci(e, this.v);
     }
-    let Ni = !1, Ye = null;
+    let Ni = !1, $e = null;
     function Mt(e) {
-        Ye = e;
+        $e = e;
     }
     function _t(e, t = !1, r) {
-        Ye = {
-            p: Ye,
+        $e = {
+            p: $e,
             i: !1,
             c: null,
             e: null,
@@ -92,12 +92,12 @@
         };
     }
     function dt(e) {
-        var t = Ye, r = t.e;
+        var t = $e, r = t.e;
         if (r !== null) {
             t.e = null;
             for (var n of r)lo(n);
         }
-        return t.i = !0, Ye = t.p, {};
+        return t.i = !0, $e = t.p, {};
     }
     function yn() {
         return !0;
@@ -194,7 +194,7 @@
                 for (const [i, o] of this.#i)Tn(i, o);
             } else {
                 for (const i of this.#t)i();
-                this.#t.clear(), this.#e === 0 && this.#d(), Sr = this, H = null, Yr(n), Yr(r), Sr = null, this.#r?.resolve();
+                this.#t.clear(), this.#e === 0 && this.#d(), Sr = this, H = null, $r(n), $r(r), Sr = null, this.#r?.resolve();
             }
             qe = null;
         }
@@ -347,7 +347,7 @@
         }
     }
     let Qe = null;
-    function Yr(e) {
+    function $r(e) {
         var t = e.length;
         if (t !== 0) {
             for(var r = 0; r < t;){
@@ -413,9 +413,9 @@
     function Vi(e) {
         let t = 0, r = Tt(0), n;
         return ()=>{
-            zr() && (c(r), jn(()=>(t === 0 && (n = Hn(()=>e(()=>Yt(r)))), t += 1, ()=>{
+            zr() && (c(r), jn(()=>(t === 0 && (n = Hn(()=>e(()=>$t(r)))), t += 1, ()=>{
                     Ot(()=>{
-                        t -= 1, t === 0 && (n?.(), n = void 0, Yt(r));
+                        t -= 1, t === 0 && (n?.(), n = void 0, $t(r));
                     });
                 })));
         };
@@ -506,7 +506,7 @@
             return !!this.#e.pending;
         }
         #h(t) {
-            var r = Z, n = B, i = Ye;
+            var r = Z, n = B, i = $e;
             Xe(this.#r), Ge(this.#r), Mt(this.#r.ctx);
             try {
                 return t();
@@ -601,7 +601,7 @@
             return;
         }
         function d() {
-            s(), Promise.all(r.map((f)=>$i(f))).then((f)=>u([
+            s(), Promise.all(r.map((f)=>Yi(f))).then((f)=>u([
                     ...t.map(i),
                     ...f
                 ])).catch((f)=>at(f, a));
@@ -609,7 +609,7 @@
         l ? l.then(d) : d();
     }
     function Ui() {
-        var e = Z, t = B, r = Ye, n = H;
+        var e = Z, t = B, r = $e, n = H;
         return function(o = !0) {
             Xe(e), Ge(t), Mt(r), o && n?.activate();
         };
@@ -617,7 +617,7 @@
     function Ar(e = !0) {
         Xe(null), Ge(null), Mt(null), e && H?.deactivate();
     }
-    function Yi() {
+    function $i() {
         var e = Z.b, t = H, r = e.is_rendered();
         return e.update_pending_count(1), t.increment(r), ()=>{
             e.update_pending_count(-1), t.decrement(r);
@@ -626,7 +626,7 @@
     function An(e) {
         var t = me | we, r = B !== null && (B.f & me) !== 0 ? B : null;
         return Z !== null && (Z.f |= Kt), {
-            ctx: Ye,
+            ctx: $e,
             deps: null,
             effects: null,
             equals: hn,
@@ -640,7 +640,7 @@
             ac: null
         };
     }
-    function $i(e, t, r) {
+    function Yi(e, t, r) {
         Z === null && Ti();
         var i = void 0, o = Tt(be), a = !B, s = new Map;
         return uo(()=>{
@@ -653,11 +653,11 @@
             }
             var u = H;
             if (a) {
-                var d = Yi();
+                var d = $i();
                 s.get(u)?.reject(yt), s.delete(u), s.set(u, l);
             }
-            const f = (h, y = void 0)=>{
-                if (u.activate(), y) y !== yt && (o.f |= lt, Ct(o, y));
+            const f = (h, g = void 0)=>{
+                if (u.activate(), g) g !== yt && (o.f |= lt, Ct(o, g));
                 else {
                     (o.f & lt) !== 0 && (o.f ^= lt), Ct(o, h);
                     for (const [_, w] of s){
@@ -773,7 +773,7 @@
         var r = c(e), n = t === 1 ? r++ : r--;
         return p(e, r), n;
     }
-    function Yt(e) {
+    function $t(e) {
         p(e, e.v + 1);
     }
     function Rn(e, t) {
@@ -811,16 +811,16 @@
                 if (u === void 0) {
                     if (l in s) {
                         const d = a(()=>S(be));
-                        r.set(l, d), Yt(i);
+                        r.set(l, d), $t(i);
                     }
-                } else p(u, be), Yt(i);
+                } else p(u, be), $t(i);
                 return !0;
             },
             get (s, l, u) {
                 if (l === Bt) return e;
                 var d = r.get(l), f = l in s;
                 if (d === void 0 && (!f || Wt(s, l)?.writable) && (d = a(()=>{
-                    var y = rt(f ? s[l] : be), _ = S(y);
+                    var g = rt(f ? s[l] : be), _ = S(g);
                     return _;
                 }), r.set(l, d)), d !== void 0) {
                     var h = c(d);
@@ -849,8 +849,8 @@
                 var u = r.get(l), d = u !== void 0 && u.v !== be || Reflect.has(s, l);
                 if (u !== void 0 || Z !== null && (!d || Wt(s, l)?.writable)) {
                     u === void 0 && (u = a(()=>{
-                        var h = d ? rt(s[l]) : be, y = S(h);
-                        return y;
+                        var h = d ? rt(s[l]) : be, g = S(h);
+                        return g;
                     }), r.set(l, u));
                     var f = c(u);
                     if (f === be) return !1;
@@ -859,9 +859,9 @@
             },
             set (s, l, u, d) {
                 var f = r.get(l), h = l in s;
-                if (n && l === "length") for(var y = u; y < f.v; y += 1){
-                    var _ = r.get(y + "");
-                    _ !== void 0 ? p(_, be) : y in s && (_ = a(()=>S(be)), r.set(y + "", _));
+                if (n && l === "length") for(var g = u; g < f.v; g += 1){
+                    var _ = r.get(g + "");
+                    _ !== void 0 ? p(_, be) : g in s && (_ = a(()=>S(be)), r.set(g + "", _));
                 }
                 if (f === void 0) (!h || Wt(s, l)?.writable) && (f = a(()=>S(void 0)), p(f, rt(u)), r.set(l, f));
                 else {
@@ -869,13 +869,13 @@
                     var w = a(()=>rt(u));
                     p(f, w);
                 }
-                var P = Reflect.getOwnPropertyDescriptor(s, l);
-                if (P?.set && P.set.call(d, u), !h) {
+                var N = Reflect.getOwnPropertyDescriptor(s, l);
+                if (N?.set && N.set.call(d, u), !h) {
                     if (n && typeof l == "string") {
-                        var I = r.get("length"), L = Number(l);
-                        Number.isInteger(L) && L >= I.v && p(I, L + 1);
+                        var P = r.get("length"), D = Number(l);
+                        Number.isInteger(D) && D >= P.v && p(P, D + 1);
                     }
-                    Yt(i);
+                    $t(i);
                 }
                 return !0;
             },
@@ -893,14 +893,14 @@
             }
         });
     }
-    function $r(e) {
+    function Yr(e) {
         try {
             if (e !== null && typeof e == "object" && Bt in e) return e[Bt];
         } catch  {}
         return e;
     }
     function to(e, t) {
-        return Object.is($r(e), $r(t));
+        return Object.is(Yr(e), Yr(t));
     }
     var Hr, Dn, Ln, Mn;
     function ro() {
@@ -976,7 +976,7 @@
         var n = Z;
         n !== null && (n.f & Ce) !== 0 && (e |= Ce);
         var i = {
-            ctx: Ye,
+            ctx: $e,
             deps: null,
             nodes: null,
             f: e | we | Fe,
@@ -1029,7 +1029,7 @@
     function jn(e, t = 0) {
         return vt(_r | t, e, !0);
     }
-    function D(e, t = [], r = [], n = []) {
+    function R(e, t = [], r = [], n = []) {
         Bi(n, t, r, (i)=>{
             vt(_r, ()=>e(...i.map(c)), !0);
         });
@@ -1180,7 +1180,7 @@
         }
     }
     function Un(e) {
-        var t = Pe, r = Le, n = ze, i = B, o = Ve, a = Ye, s = Be, l = Et, u = e.f;
+        var t = Pe, r = Le, n = ze, i = B, o = Ve, a = $e, s = Be, l = Et, u = e.f;
         Pe = null, Le = 0, ze = null, B = (u & (Ze | At)) === 0 ? e : null, Ve = null, Mt(e.ctx), Be = !1, Et = ++mt, e.ac !== null && (jr(()=>{
             e.ac.abort(yt);
         }), e.ac = null);
@@ -1188,13 +1188,13 @@
             e.f |= Er;
             var d = e.fn, f = d();
             e.f |= Dt;
-            var h = e.deps, y = H?.is_fork;
+            var h = e.deps, g = H?.is_fork;
             if (Pe !== null) {
                 var _;
-                if (y || Zt(e, Le), h !== null && Le > 0) for(h.length = Le + Pe.length, _ = 0; _ < Pe.length; _++)h[Le + _] = Pe[_];
+                if (g || Zt(e, Le), h !== null && Le > 0) for(h.length = Le + Pe.length, _ = 0; _ < Pe.length; _++)h[Le + _] = Pe[_];
                 else e.deps = h = Pe;
                 if (zr() && (e.f & Fe) !== 0) for(_ = Le; _ < h.length; _++)(h[_].reactions ??= []).push(e);
-            } else !y && h !== null && Le < h.length && (Zt(e, Le), h.length = Le);
+            } else !g && h !== null && Le < h.length && (Zt(e, Le), h.length = Le);
             if (yn() && ze !== null && !Be && h !== null && (e.f & (me | Ue | we)) === 0) for(_ = 0; _ < ze.length; _++)Bn(ze[_], e);
             if (i !== null && i !== e) {
                 if (mt++, i.deps !== null) for(let w = 0; w < r; w += 1)i.deps[w].rv = mt;
@@ -1269,22 +1269,22 @@
             var a = e;
             if (jt) {
                 var s = a.v;
-                return ((a.f & pe) === 0 && a.reactions !== null || $n(a)) && (s = Nr(a)), ut.set(a, s), s;
+                return ((a.f & pe) === 0 && a.reactions !== null || Yn(a)) && (s = Nr(a)), ut.set(a, s), s;
             }
             var l = (a.f & Fe) === 0 && !Be && B !== null && (or || (B.f & Fe) !== 0), u = (a.f & Dt) === 0;
-            er(a) && (l && (a.f |= Fe), Pn(a)), l && !u && (In(a), Yn(a));
+            er(a) && (l && (a.f |= Fe), Pn(a)), l && !u && (In(a), $n(a));
         }
         if (qe?.has(e)) return qe.get(e);
         if ((e.f & lt) !== 0) throw e.v;
         return e.v;
     }
-    function Yn(e) {
-        if (e.f |= Fe, e.deps !== null) for (const t of e.deps)(t.reactions ??= []).push(e), (t.f & me) !== 0 && (t.f & Fe) === 0 && (In(t), Yn(t));
-    }
     function $n(e) {
+        if (e.f |= Fe, e.deps !== null) for (const t of e.deps)(t.reactions ??= []).push(e), (t.f & me) !== 0 && (t.f & Fe) === 0 && (In(t), $n(t));
+    }
+    function Yn(e) {
         if (e.v === be) return !0;
         if (e.deps === null) return !1;
-        for (const t of e.deps)if (ut.has(t) || (t.f & me) !== 0 && $n(t)) return !0;
+        for (const t of e.deps)if (ut.has(t) || (t.f & me) !== 0 && Yn(t)) return !0;
         return !1;
     }
     function Hn(e) {
@@ -1328,20 +1328,20 @@
             var d = B, f = Z;
             Ge(null), Xe(null);
             try {
-                for(var h, y = []; o !== null;){
+                for(var h, g = []; o !== null;){
                     var _ = o.assignedSlot || o.parentNode || o.host || null;
                     try {
                         var w = o[Vt]?.[n];
                         w != null && (!o.disabled || e.target === o) && w.call(o, e);
-                    } catch (P) {
-                        h ? y.push(P) : h = P;
+                    } catch (N) {
+                        h ? g.push(N) : h = N;
                     }
                     if (e.cancelBubble || _ === t || _ === null) break;
                     o = _;
                 }
                 if (h) {
-                    for (let P of y)queueMicrotask(()=>{
-                        throw P;
+                    for (let N of g)queueMicrotask(()=>{
+                        throw N;
                     });
                     throw h;
                 }
@@ -1369,7 +1369,7 @@
             t: null
         });
     }
-    function O(e, t) {
+    function I(e, t) {
         var r = (t & vi) !== 0, n = (t & pi) !== 0, i, o = !e.startsWith("<!>");
         return ()=>{
             i === void 0 && (i = Jn(o ? e : "<!>" + e), r || (i = Nt(i)));
@@ -1423,38 +1423,38 @@
             var d = r ?? t.appendChild(ft());
             qi(d, {
                 pending: ()=>{}
-            }, (y)=>{
+            }, (g)=>{
                 _t({});
-                var _ = Ye;
-                o && (_.c = o), i && (n.$$events = i), l = e(y, n) || {}, dt();
+                var _ = $e;
+                o && (_.c = o), i && (n.$$events = i), l = e(g, n) || {}, dt();
             }, s);
-            var f = new Set, h = (y)=>{
-                for(var _ = 0; _ < y.length; _++){
-                    var w = y[_];
+            var f = new Set, h = (g)=>{
+                for(var _ = 0; _ < g.length; _++){
+                    var w = g[_];
                     if (!f.has(w)) {
                         f.add(w);
-                        var P = ko(w);
+                        var N = ko(w);
                         for (const E of [
                             t,
                             document
                         ]){
-                            var I = nr.get(E);
-                            I === void 0 && (I = new Map, nr.set(E, I));
-                            var L = I.get(w);
-                            L === void 0 ? (E.addEventListener(w, en, {
-                                passive: P
-                            }), I.set(w, 1)) : I.set(w, L + 1);
+                            var P = nr.get(E);
+                            P === void 0 && (P = new Map, nr.set(E, P));
+                            var D = P.get(w);
+                            D === void 0 ? (E.addEventListener(w, en, {
+                                passive: N
+                            }), P.set(w, 1)) : P.set(w, D + 1);
                         }
                     }
                 }
             };
             return h(ur(Xn)), Ir.add(h), ()=>{
-                for (var y of f)for (const P of [
+                for (var g of f)for (const N of [
                     t,
                     document
                 ]){
-                    var _ = nr.get(P), w = _.get(y);
-                    --w == 0 ? (P.removeEventListener(y, en), _.delete(y), _.size === 0 && nr.delete(P)) : _.set(y, w);
+                    var _ = nr.get(N), w = _.get(g);
+                    --w == 0 ? (N.removeEventListener(g, en), _.delete(g), _.size === 0 && nr.delete(N)) : _.set(g, w);
                 }
                 Ir.delete(h), d !== r && d.parentNode?.removeChild(d);
             };
@@ -1523,7 +1523,7 @@
             } else this.#a();
         }
     }
-    function Y(e, t, r = !1) {
+    function $(e, t, r = !1) {
         var n = new Ao(e), i = r ? Lt : 0;
         function o(a, s) {
             n.ensure(a, s);
@@ -1573,24 +1573,24 @@
             a = l.appendChild(ft());
         }
         var u = null, d = Hi(()=>{
-            var P = r();
-            return Lr(P) ? P : P == null ? [] : ur(P);
+            var N = r();
+            return Lr(N) ? N : N == null ? [] : ur(N);
         }), f, h = !0;
-        function y() {
+        function g() {
             w.fallback = u, Oo(w, f, a, t, n), u !== null && (f.length === 0 ? (u.f & ot) === 0 ? Vr(u) : (u.f ^= ot, Gt(u, null, a)) : kt(u, ()=>{
                 u = null;
             }));
         }
         var _ = Kr(()=>{
             f = c(d);
-            for(var P = f.length, I = new Set, L = H, E = Cn(), M = 0; M < P; M += 1){
-                var C = f[M], K = n(C, M), q = h ? null : s.get(K);
-                q ? (q.v && Ct(q.v, C), q.i && Ct(q.i, M), E && L.unskip_effect(q.e)) : (q = Ro(s, h ? a : tn ??= ft(), C, K, M, i, t, r), h || (q.e.f |= ot), s.set(K, q)), I.add(K);
+            for(var N = f.length, P = new Set, D = H, E = Cn(), L = 0; L < N; L += 1){
+                var M = f[L], K = n(M, L), q = h ? null : s.get(K);
+                q ? (q.v && Ct(q.v, M), q.i && Ct(q.i, L), E && D.unskip_effect(q.e)) : (q = Ro(s, h ? a : tn ??= ft(), M, K, L, i, t, r), h || (q.e.f |= ot), s.set(K, q)), P.add(K);
             }
-            if (P === 0 && o && !u && (h ? u = Ke(()=>o(a)) : (u = Ke(()=>o(tn ??= ft())), u.f |= ot)), P > I.size && Ai(), !h) if (E) {
-                for (const [$, Se] of s)I.has($) || L.skip_effect(Se.e);
-                L.oncommit(y), L.ondiscard(()=>{});
-            } else y();
+            if (N === 0 && o && !u && (h ? u = Ke(()=>o(a)) : (u = Ke(()=>o(tn ??= ft())), u.f |= ot)), N > P.size && Ai(), !h) if (E) {
+                for (const [Y, Se] of s)P.has(Y) || D.skip_effect(Se.e);
+                D.oncommit(g), D.ondiscard(()=>{});
+            } else g();
             c(d);
         }), w = {
             effect: _,
@@ -1605,24 +1605,24 @@
         return e;
     }
     function Oo(e, t, r, n, i) {
-        var o = t.length, a = e.items, s = Ft(e.effect.first), l, u = null, d = [], f = [], h, y, _, w;
+        var o = t.length, a = e.items, s = Ft(e.effect.first), l, u = null, d = [], f = [], h, g, _, w;
         for(w = 0; w < o; w += 1){
-            if (h = t[w], y = i(h, w), _ = a.get(y).e, e.outrogroups !== null) for (const $ of e.outrogroups)$.pending.delete(_), $.done.delete(_);
+            if (h = t[w], g = i(h, w), _ = a.get(g).e, e.outrogroups !== null) for (const Y of e.outrogroups)Y.pending.delete(_), Y.done.delete(_);
             if ((_.f & ot) !== 0) if (_.f ^= ot, _ === s) Gt(_, null, r);
             else {
-                var P = u ? u.next : s;
-                _ === e.effect.last && (e.effect.last = _.prev), _.prev && (_.prev.next = _.next), _.next && (_.next.prev = _.prev), it(e, u, _), it(e, _, P), Gt(_, P, r), u = _, d = [], f = [], s = Ft(u.next);
+                var N = u ? u.next : s;
+                _ === e.effect.last && (e.effect.last = _.prev), _.prev && (_.prev.next = _.next), _.next && (_.next.prev = _.prev), it(e, u, _), it(e, _, N), Gt(_, N, r), u = _, d = [], f = [], s = Ft(u.next);
                 continue;
             }
             if ((_.f & Ce) !== 0 && Vr(_), _ !== s) {
                 if (l !== void 0 && l.has(_)) {
                     if (d.length < f.length) {
-                        var I = f[0], L;
-                        u = I.prev;
-                        var E = d[0], M = d[d.length - 1];
-                        for(L = 0; L < d.length; L += 1)Gt(d[L], I, r);
-                        for(L = 0; L < f.length; L += 1)l.delete(f[L]);
-                        it(e, E.prev, M.next), it(e, u, E), it(e, M, I), s = I, u = M, w -= 1, d = [], f = [];
+                        var P = f[0], D;
+                        u = P.prev;
+                        var E = d[0], L = d[d.length - 1];
+                        for(D = 0; D < d.length; D += 1)Gt(d[D], P, r);
+                        for(D = 0; D < f.length; D += 1)l.delete(f[D]);
+                        it(e, E.prev, L.next), it(e, u, E), it(e, L, P), s = P, u = L, w -= 1, d = [], f = [];
                     } else l.delete(_), Gt(_, s, r), it(e, _.prev, _.next), it(e, _, u === null ? e.effect.first : u.next), it(e, u, _), u = _;
                     continue;
                 }
@@ -1632,17 +1632,17 @@
             (_.f & ot) === 0 && d.push(_), u = _, s = Ft(_.next);
         }
         if (e.outrogroups !== null) {
-            for (const $ of e.outrogroups)$.pending.size === 0 && (Or(ur($.done)), e.outrogroups?.delete($));
+            for (const Y of e.outrogroups)Y.pending.size === 0 && (Or(ur(Y.done)), e.outrogroups?.delete(Y));
             e.outrogroups.size === 0 && (e.outrogroups = null);
         }
         if (s !== null || l !== void 0) {
-            var C = [];
-            if (l !== void 0) for (_ of l)(_.f & Ce) === 0 && C.push(_);
-            for(; s !== null;)(s.f & Ce) === 0 && s !== e.fallback && C.push(s), s = Ft(s.next);
-            var K = C.length;
+            var M = [];
+            if (l !== void 0) for (_ of l)(_.f & Ce) === 0 && M.push(_);
+            for(; s !== null;)(s.f & Ce) === 0 && s !== e.fallback && M.push(s), s = Ft(s.next);
+            var K = M.length;
             if (K > 0) {
                 var q = o === 0 ? r : null;
-                Io(e, C, q);
+                Io(e, M, q);
             }
         }
     }
@@ -1789,7 +1789,7 @@
     }, an = {}, ve = function(t, r, n) {
         let i = Promise.resolve();
         if (r && r.length > 0) {
-            let a = function(d) {
+            let u = function(d) {
                 return Promise.all(d.map((f)=>Promise.resolve(f).then((h)=>({
                             status: "fulfilled",
                             value: h
@@ -1798,19 +1798,19 @@
                             reason: h
                         }))));
             };
-            const s = document.getElementsByTagName("link"), l = document.querySelector("meta[property=csp-nonce]"), u = l?.nonce || l?.getAttribute("nonce");
-            i = a(r.map((d)=>{
+            const a = document.getElementsByTagName("link"), s = document.querySelector("meta[property=csp-nonce]"), l = s?.nonce || s?.getAttribute("nonce");
+            i = u(r.map((d)=>{
                 if (d = Fo(d, n), d in an) return;
                 an[d] = !0;
                 const f = d.endsWith(".css"), h = f ? '[rel="stylesheet"]' : "";
-                if (!!n) for(let w = s.length - 1; w >= 0; w--){
-                    const P = s[w];
-                    if (P.href === d && (!f || P.rel === "stylesheet")) return;
+                if (n) for(let _ = a.length - 1; _ >= 0; _--){
+                    const w = a[_];
+                    if (w.href === d && (!f || w.rel === "stylesheet")) return;
                 }
                 else if (document.querySelector(`link[href="${d}"]${h}`)) return;
-                const _ = document.createElement("link");
-                if (_.rel = f ? "stylesheet" : Ko, f || (_.as = "script"), _.crossOrigin = "", _.href = d, u && _.setAttribute("nonce", u), document.head.appendChild(_), f) return new Promise((w, P)=>{
-                    _.addEventListener("load", w), _.addEventListener("error", ()=>P(new Error(`Unable to preload CSS for ${d}`)));
+                const g = document.createElement("link");
+                if (g.rel = f ? "stylesheet" : Ko, f || (g.as = "script"), g.crossOrigin = "", g.href = d, l && g.setAttribute("nonce", l), document.head.appendChild(g), f) return new Promise((_, w)=>{
+                    g.addEventListener("load", _), g.addEventListener("error", ()=>w(new Error(`Unable to preload CSS for ${d}`)));
                 });
             }));
         }
@@ -1824,7 +1824,7 @@
             for (const s of a || [])s.status === "rejected" && o(s.reason);
             return t().catch(o);
         });
-    }, Vo = "Browser-based PGP encryption powered by WebAssembly", Go = "All cryptography runs locally in your browser via WebAssembly. No data is sent to any server.", qo = "Loading cryptographic engine...", Wo = "Failed to load WASM module: {error}", Bo = "Encrypt", Uo = "Decrypt", Yo = "Sign", $o = "Verify", Ho = "Keys", Xo = "Encrypt Message", Jo = "Type your message here...", Zo = "Recipients", Qo = "No keys available. Add keys in the Keys tab.", ea = "Encrypt", ta = "Enter a message to encrypt.", ra = "Select at least one recipient key.", na = "(own)", ia = "Decrypt Message", oa = "Paste encrypted PGP message here...", aa = "Passphrase (if key is protected)", sa = "Decrypt", la = "Paste an encrypted PGP message.", ca = "No private keys available. Generate or import a key in the Keys tab.", ua = "Decryption failed. You may not have the correct private key, or the passphrase is wrong.", fa = "Sign Message", _a = "Type your message here...", da = "Passphrase (if key is protected)", va = "Sign", pa = "Enter a message to sign.", ha = "No private keys available. Generate or import a key in the Keys tab.", ga = "Signing failed. Your key may require a passphrase.", ya = "Verify Signature", ba = "Paste signed PGP message here...", ma = "Verify", wa = "Paste a signed PGP message.", xa = "No keys in keyring. Import the signer's public key first.", ka = "Valid Signature", Ea = "Signed by: {name}", Sa = "Verification Failed", Ta = "The signer's key may not be in your keyring.", Aa = "Key Manager", Pa = "Generate", Ia = "Import", Oa = "No keys yet. Generate or import one to get started.", Ra = "(own key)", Da = "(unnamed)", La = "Generate New Key Pair", Ma = "Name", Ca = "Email", Na = "Passphrase (optional)", ja = "Name and email are required.", za = "Cancel", Ka = "Generate", Fa = "Generating...", Va = "Key pair generated!", Ga = "Import Key", qa = "Paste ASCII-armored PGP key...", Wa = "Paste a PGP public or private key.", Ba = "Cancel", Ua = "Import", Ya = "Importing...", $a = "Imported key for {name}.", Ha = "Export", Xa = "Delete", Ja = "Key deleted.", Za = "Public key copied to clipboard.", Qa = "Copy", es = "System", ts = "Light", rs = "Dark", ns = "Skip tutorial", is = "Step {current} of {total}", os = "Next", as = "Back", ss = "Get Started", ls = "Welcome to KeychainPGP", cs = "This quick tutorial will walk you through PGP encryption. You'll create your key pair and decrypt your first secret message.", us = "Create Your Key Pair", fs = "A PGP key pair has two parts: a public key you share with others so they can send you encrypted messages, and a private key you keep secret to decrypt them.", _s = "Generate My Key", ds = "Generating...", vs = "Key pair created and saved!", ps = "Decrypt Your First Message", hs = "We just encrypted a welcome message using your public key. Only your private key can unlock it. Give it a try!", gs = "Decrypt Message", ys = "Message decrypted!", bs = "To exchange encrypted messages with someone, import their public key in the Keys tab. They'll need your public key too.", ms = "You're Ready!", ws = "You've mastered the basics of PGP encryption. Use the tabs above to encrypt, decrypt, sign, and verify messages. Import contacts' public keys in the Keys tab to communicate securely.", xs = `Hello World!
+    }, Vo = "Browser-based PGP encryption powered by WebAssembly", Go = "All cryptography runs locally in your browser via WebAssembly. No data is sent to any server.", qo = "Loading cryptographic engine...", Wo = "Failed to load WASM module: {error}", Bo = "Encrypt", Uo = "Decrypt", $o = "Sign", Yo = "Verify", Ho = "Keys", Xo = "Encrypt Message", Jo = "Type your message here...", Zo = "Recipients", Qo = "No keys available. Add keys in the Keys tab.", ea = "Encrypt", ta = "Enter a message to encrypt.", ra = "Select at least one recipient key.", na = "(own)", ia = "Decrypt Message", oa = "Paste encrypted PGP message here...", aa = "Passphrase (if key is protected)", sa = "Decrypt", la = "Paste an encrypted PGP message.", ca = "No private keys available. Generate or import a key in the Keys tab.", ua = "Decryption failed. You may not have the correct private key, or the passphrase is wrong.", fa = "Sign Message", _a = "Type your message here...", da = "Passphrase (if key is protected)", va = "Sign", pa = "Enter a message to sign.", ha = "No private keys available. Generate or import a key in the Keys tab.", ga = "Signing failed. Your key may require a passphrase.", ya = "Verify Signature", ba = "Paste signed PGP message here...", ma = "Verify", wa = "Paste a signed PGP message.", xa = "No keys in keyring. Import the signer's public key first.", ka = "Valid Signature", Ea = "Signed by: {name}", Sa = "Verification Failed", Ta = "The signer's key may not be in your keyring.", Aa = "Key Manager", Pa = "Generate", Ia = "Import", Oa = "No keys yet. Generate or import one to get started.", Ra = "(own key)", Da = "(unnamed)", La = "Generate New Key Pair", Ma = "Name", Ca = "Email", Na = "Passphrase (optional)", ja = "Name and email are required.", za = "Cancel", Ka = "Generate", Fa = "Generating...", Va = "Key pair generated!", Ga = "Import Key", qa = "Paste ASCII-armored PGP key...", Wa = "Paste a PGP public or private key.", Ba = "Cancel", Ua = "Import", $a = "Importing...", Ya = "Imported key for {name}.", Ha = "Export", Xa = "Delete", Ja = "Key deleted.", Za = "Public key copied to clipboard.", Qa = "Copy", es = "System", ts = "Light", rs = "Dark", ns = "Skip tutorial", is = "Step {current} of {total}", os = "Next", as = "Back", ss = "Get Started", ls = "Welcome to KeychainPGP", cs = "This quick tutorial will walk you through PGP encryption. You'll create your key pair and decrypt your first secret message.", us = "Create Your Key Pair", fs = "A PGP key pair has two parts: a public key you share with others so they can send you encrypted messages, and a private key you keep secret to decrypt them.", _s = "Generate My Key", ds = "Generating...", vs = "Key pair created and saved!", ps = "Decrypt Your First Message", hs = "We just encrypted a welcome message using your public key. Only your private key can unlock it. Give it a try!", gs = "Decrypt Message", ys = "Message decrypted!", bs = "To exchange encrypted messages with someone, import their public key in the Keys tab. They'll need your public key too.", ms = "You're Ready!", ws = "You've mastered the basics of PGP encryption. Use the tabs above to encrypt, decrypt, sign, and verify messages. Import contacts' public keys in the Keys tab to communicate securely.", xs = `Hello World!
 
 Congratulations! You have successfully decrypted your first PGP message.
 
@@ -1837,8 +1837,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         loading_error: Wo,
         tab_encrypt: Bo,
         tab_decrypt: Uo,
-        tab_sign: Yo,
-        tab_verify: $o,
+        tab_sign: $o,
+        tab_verify: Yo,
         tab_keys: Ho,
         encrypt_title: Xo,
         encrypt_placeholder: Jo,
@@ -1891,8 +1891,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         import_error_empty: Wa,
         import_cancel: Ba,
         import_submit: Ua,
-        import_loading: Ya,
-        import_success: $a,
+        import_loading: $a,
+        import_success: Ya,
         key_export_btn: Ha,
         key_delete_btn: Xa,
         key_deleted: Ja,
@@ -1922,7 +1922,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         onboarding_done_desc: ws,
         onboarding_secret_message: xs,
         language_label: ks
-    }, $t = [
+    }, Yt = [
         {
             code: "en",
             name: "English",
@@ -2052,10 +2052,10 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     }
     function As() {
         const e = localStorage.getItem(ei);
-        if (e && $t.some((i)=>i.code === e)) return e;
-        const t = navigator.language, r = $t.find((i)=>i.code === t);
+        if (e && Yt.some((i)=>i.code === e)) return e;
+        const t = navigator.language, r = Yt.find((i)=>i.code === t);
         if (r) return r.code;
-        const n = $t.find((i)=>t.startsWith(i.code.split("-")[0]));
+        const n = Yt.find((i)=>t.startsWith(i.code.split("-")[0]));
         return n ? n.code : "en";
     }
     async function ni(e) {
@@ -2067,7 +2067,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             }
         }
         ti = ar.get(e) ?? pr, ri = e;
-        const t = $t.find((r)=>r.code === e);
+        const t = Yt.find((r)=>r.code === e);
         document.documentElement.setAttribute("dir", t?.dir ?? "ltr"), document.documentElement.setAttribute("lang", e);
     }
     function Ps(e, t) {
@@ -2086,7 +2086,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     function Rs() {
         return c(hr), Ts();
     }
-    function g(e, t) {
+    function y(e, t) {
         return c(hr), Ps(e, t);
     }
     const Ds = "5";
@@ -2094,10 +2094,10 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     function Ls(e, t, r) {
         let n, i;
         try {
-            const y = k.__wbindgen_add_to_stack_pointer(-16), _ = ke(e, k.__wbindgen_export, k.__wbindgen_export2), w = he, P = ke(t, k.__wbindgen_export, k.__wbindgen_export2), I = he;
+            const g = k.__wbindgen_add_to_stack_pointer(-16), _ = ke(e, k.__wbindgen_export, k.__wbindgen_export2), w = he, N = ke(t, k.__wbindgen_export, k.__wbindgen_export2), P = he;
             var o = xt(r) ? 0 : ke(r, k.__wbindgen_export, k.__wbindgen_export2), a = he;
-            k.decrypt(y, _, w, P, I, o, a);
-            var s = ne().getInt32(y + 0, !0), l = ne().getInt32(y + 4, !0), u = ne().getInt32(y + 8, !0), d = ne().getInt32(y + 12, !0), f = s, h = l;
+            k.decrypt(g, _, w, N, P, o, a);
+            var s = ne().getInt32(g + 0, !0), l = ne().getInt32(g + 4, !0), u = ne().getInt32(g + 8, !0), d = ne().getInt32(g + 12, !0), f = s, h = l;
             if (d) throw f = 0, h = 0, Ie(u);
             return n = f, i = h, wt(f, h);
         } finally{
@@ -2107,8 +2107,8 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     function Ms(e, t) {
         let r, n;
         try {
-            const d = k.__wbindgen_add_to_stack_pointer(-16), f = ke(e, k.__wbindgen_export, k.__wbindgen_export2), h = he, y = ke(t, k.__wbindgen_export, k.__wbindgen_export2), _ = he;
-            k.encrypt(d, f, h, y, _);
+            const d = k.__wbindgen_add_to_stack_pointer(-16), f = ke(e, k.__wbindgen_export, k.__wbindgen_export2), h = he, g = ke(t, k.__wbindgen_export, k.__wbindgen_export2), _ = he;
+            k.encrypt(d, f, h, g, _);
             var i = ne().getInt32(d + 0, !0), o = ne().getInt32(d + 4, !0), a = ne().getInt32(d + 8, !0), s = ne().getInt32(d + 12, !0), l = i, u = o;
             if (s) throw l = 0, u = 0, Ie(a);
             return r = l, n = u, wt(l, u);
@@ -2145,10 +2145,10 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     function zs(e, t, r) {
         let n, i;
         try {
-            const y = k.__wbindgen_add_to_stack_pointer(-16), _ = ke(e, k.__wbindgen_export, k.__wbindgen_export2), w = he, P = ke(t, k.__wbindgen_export, k.__wbindgen_export2), I = he;
+            const g = k.__wbindgen_add_to_stack_pointer(-16), _ = ke(e, k.__wbindgen_export, k.__wbindgen_export2), w = he, N = ke(t, k.__wbindgen_export, k.__wbindgen_export2), P = he;
             var o = xt(r) ? 0 : ke(r, k.__wbindgen_export, k.__wbindgen_export2), a = he;
-            k.sign(y, _, w, P, I, o, a);
-            var s = ne().getInt32(y + 0, !0), l = ne().getInt32(y + 4, !0), u = ne().getInt32(y + 8, !0), d = ne().getInt32(y + 12, !0), f = s, h = l;
+            k.sign(g, _, w, N, P, o, a);
+            var s = ne().getInt32(g + 0, !0), l = ne().getInt32(g + 4, !0), u = ne().getInt32(g + 8, !0), d = ne().getInt32(g + 12, !0), f = s, h = l;
             if (d) throw f = 0, h = 0, Ie(u);
             return n = f, i = h, wt(f, h);
         } finally{
@@ -2444,7 +2444,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         return Ws(r);
     }
     let ln = !1;
-    async function Ys() {
+    async function $s() {
         ln || (await Us(), Ns(), ln = !0);
     }
     function ii(e, t, r) {
@@ -2456,7 +2456,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     function ai(e, t, r) {
         return Ls(e, t, r ?? void 0);
     }
-    function $s(e, t, r) {
+    function Ys(e, t, r) {
         return zs(e, t, r ?? void 0);
     }
     function Hs(e, t) {
@@ -2588,33 +2588,33 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
             i.objectStore(Je).delete(e), i.oncomplete = ()=>r(), i.onerror = ()=>n(i.error);
         });
     }
-    var sl = O("<span></span>"), ll = O('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p>', 1), cl = O('<p class="success svelte-13krnjv"> </p>'), ul = O('<p class="error svelte-13krnjv"> </p>'), fl = O('<div class="wizard-form svelte-13krnjv"><input class="input"/> <input class="input" type="email"/> <input class="input" type="password"/> <!> <button class="btn btn-primary"> </button></div>'), _l = O('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p> <!>', 1), dl = O('<p class="success svelte-13krnjv" style="margin-top: 0.75rem;"> </p> <div class="decrypted-block svelte-13krnjv"> </div>', 1), vl = O('<p class="error svelte-13krnjv" style="margin-top: 0.5rem;"> </p>'), pl = O('<!> <button class="btn btn-primary" style="margin-top: 0.75rem;"> </button>', 1), hl = O('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p> <div class="pgp-block svelte-13krnjv"> </div> <!> <p class="wizard-tip svelte-13krnjv"> </p>', 1), gl = O('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p>', 1), yl = O('<button class="btn"> </button>'), bl = O("<div></div>"), ml = O('<button class="btn btn-primary"> </button>'), wl = O('<button class="btn btn-primary"> </button>'), xl = O('<div class="card wizard svelte-13krnjv"><div class="wizard-header svelte-13krnjv"><div class="wizard-dots svelte-13krnjv"></div> <button class="wizard-skip svelte-13krnjv"> </button></div> <div class="wizard-content svelte-13krnjv"><!></div> <div class="wizard-footer svelte-13krnjv"><!> <!></div></div>');
+    var sl = I("<span></span>"), ll = I('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p>', 1), cl = I('<p class="success svelte-13krnjv"> </p>'), ul = I('<p class="error svelte-13krnjv"> </p>'), fl = I('<div class="wizard-form svelte-13krnjv"><input class="input"/> <input class="input" type="email"/> <input class="input" type="password"/> <!> <button class="btn btn-primary"> </button></div>'), _l = I('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p> <!>', 1), dl = I('<p class="success svelte-13krnjv" style="margin-top: 0.75rem;"> </p> <div class="decrypted-block svelte-13krnjv"> </div>', 1), vl = I('<p class="error svelte-13krnjv" style="margin-top: 0.5rem;"> </p>'), pl = I('<!> <button class="btn btn-primary" style="margin-top: 0.75rem;"> </button>', 1), hl = I('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p> <div class="pgp-block svelte-13krnjv"> </div> <!> <p class="wizard-tip svelte-13krnjv"> </p>', 1), gl = I('<h2 class="svelte-13krnjv"> </h2> <p class="svelte-13krnjv"> </p>', 1), yl = I('<button class="btn"> </button>'), bl = I("<div></div>"), ml = I('<button class="btn btn-primary"> </button>'), wl = I('<button class="btn btn-primary"> </button>'), xl = I('<div class="card wizard svelte-13krnjv"><div class="wizard-header svelte-13krnjv"><div class="wizard-dots svelte-13krnjv"></div> <button class="wizard-skip svelte-13krnjv"> </button></div> <div class="wizard-content svelte-13krnjv"><!></div> <div class="wizard-footer svelte-13krnjv"><!> <!></div></div>');
     function kl(e, t) {
         _t(t, !0);
         const r = 4;
-        let n = S(0), i = S(""), o = S(""), a = S(""), s = S(""), l = S(!1), u = S(!1), d = S(""), f = S(""), h = S(""), y = S(""), _ = S(!1), w = S("");
+        let n = S(0), i = S(""), o = S(""), a = S(""), s = S(""), l = S(!1), u = S(!1), d = S(""), f = S(""), h = S(""), g = S(""), _ = S(!1), w = S("");
+        function N() {
+            cn(), t.onDismiss();
+        }
         function P() {
             cn(), t.onDismiss();
         }
-        function I() {
-            cn(), t.onDismiss();
-        }
-        function L() {
+        function D() {
             c(n) > 0 && lr(n, -1);
         }
         function E() {
             c(n) === 1 && !c(u) || c(n) < r - 1 && lr(n);
         }
-        async function M() {
+        async function L() {
             if (p(s, ""), !c(i).trim() || !c(o).trim()) {
-                p(s, g("keygen_error_required"), !0);
+                p(s, y("keygen_error_required"), !0);
                 return;
             }
             p(l, !0);
             try {
-                const x = ii(c(i), c(o), c(a) || void 0), N = Rr(x.public_key);
-                await Dr(x.fingerprint, N.user_ids[0]?.name ?? null, N.user_ids[0]?.email ?? null, x.public_key, x.secret_key), p(d, x.public_key, !0), p(f, x.fingerprint, !0), p(u, !0);
-                const V = g("onboarding_secret_message");
+                const x = ii(c(i), c(o), c(a) || void 0), C = Rr(x.public_key);
+                await Dr(x.fingerprint, C.user_ids[0]?.name ?? null, C.user_ids[0]?.email ?? null, x.public_key, x.secret_key), p(d, x.public_key, !0), p(f, x.fingerprint, !0), p(u, !0);
+                const V = y("onboarding_secret_message");
                 p(h, oi(V, [
                     x.public_key
                 ]), !0);
@@ -2624,7 +2624,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 p(l, !1);
             }
         }
-        async function C() {
+        async function M() {
             p(w, ""), p(_, !0);
             try {
                 const x = await Wr(c(f));
@@ -2632,166 +2632,166 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     p(w, "Could not retrieve secret key.");
                     return;
                 }
-                p(y, ai(c(h), x, c(a) || void 0), !0);
+                p(g, ai(c(h), x, c(a) || void 0), !0);
             } catch (x) {
                 p(w, String(x), !0);
             } finally{
                 p(_, !1);
             }
         }
-        var K = xl(), q = v(K), $ = v(q);
-        vr($, 21, ()=>Array(r), Po, (x, N, V)=>{
+        var K = xl(), q = v(K), Y = v(q);
+        vr(Y, 21, ()=>Array(r), Po, (x, C, V)=>{
             var J = sl();
             let ie;
-            D(()=>ie = gt(J, 1, "wizard-dot svelte-13krnjv", null, ie, {
+            R(()=>ie = gt(J, 1, "wizard-dot svelte-13krnjv", null, ie, {
                     active: V === c(n),
                     completed: V < c(n)
                 })), A(x, J);
         });
-        var Se = b($, 2), De = v(Se), F = b(q, 2), T = v(F);
+        var Se = b(Y, 2), De = v(Se), F = b(q, 2), T = v(F);
         {
             var j = (x)=>{
-                var N = ll(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie);
-                D((ge, le)=>{
+                var C = ll(), V = et(C), J = v(V), ie = b(V, 2), de = v(ie);
+                R((ge, le)=>{
                     m(J, ge), m(de, le);
                 }, [
-                    ()=>g("onboarding_welcome_title"),
-                    ()=>g("onboarding_welcome_desc")
-                ]), A(x, N);
+                    ()=>y("onboarding_welcome_title"),
+                    ()=>y("onboarding_welcome_desc")
+                ]), A(x, C);
             }, z = (x)=>{
-                var N = _l(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2);
+                var C = _l(), V = et(C), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2);
                 {
                     var le = (te)=>{
                         var ce = cl(), Q = v(ce);
-                        D((ue)=>m(Q, ue), [
-                            ()=>g("onboarding_gen_done")
+                        R((ue)=>m(Q, ue), [
+                            ()=>y("onboarding_gen_done")
                         ]), A(te, ce);
                     }, je = (te)=>{
                         var ce = fl(), Q = v(ce), ue = b(Q, 2), fe = b(ue, 2), G = b(fe, 2);
                         {
                             var Ee = (ae)=>{
                                 var xe = ul(), It = v(xe);
-                                D(()=>m(It, c(s))), A(ae, xe);
+                                R(()=>m(It, c(s))), A(ae, xe);
                             };
-                            Y(G, (ae)=>{
+                            $(G, (ae)=>{
                                 c(s) && ae(Ee);
                             });
                         }
                         var ye = b(G, 2), Te = v(ye);
-                        D((ae, xe, It, yr)=>{
+                        R((ae, xe, It, yr)=>{
                             Oe(Q, "placeholder", ae), Oe(ue, "placeholder", xe), Oe(fe, "placeholder", It), ye.disabled = c(l), m(Te, yr);
                         }, [
-                            ()=>g("keygen_name"),
-                            ()=>g("keygen_email"),
-                            ()=>g("keygen_passphrase"),
-                            ()=>c(l) ? g("onboarding_gen_generating") : g("onboarding_gen_btn")
-                        ]), Me(Q, ()=>c(i), (ae)=>p(i, ae)), Me(ue, ()=>c(o), (ae)=>p(o, ae)), Me(fe, ()=>c(a), (ae)=>p(a, ae)), X("click", ye, M), A(te, ce);
+                            ()=>y("keygen_name"),
+                            ()=>y("keygen_email"),
+                            ()=>y("keygen_passphrase"),
+                            ()=>c(l) ? y("onboarding_gen_generating") : y("onboarding_gen_btn")
+                        ]), Me(Q, ()=>c(i), (ae)=>p(i, ae)), Me(ue, ()=>c(o), (ae)=>p(o, ae)), Me(fe, ()=>c(a), (ae)=>p(a, ae)), X("click", ye, L), A(te, ce);
                     };
-                    Y(ge, (te)=>{
+                    $(ge, (te)=>{
                         c(u) ? te(le) : te(je, !1);
                     });
                 }
-                D((te, ce)=>{
+                R((te, ce)=>{
                     m(J, te), m(de, ce);
                 }, [
-                    ()=>g("onboarding_gen_title"),
-                    ()=>g("onboarding_gen_desc")
-                ]), A(x, N);
+                    ()=>y("onboarding_gen_title"),
+                    ()=>y("onboarding_gen_desc")
+                ]), A(x, C);
             }, ee = (x)=>{
-                var N = hl(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2), le = v(ge), je = b(ge, 2);
+                var C = hl(), V = et(C), J = v(V), ie = b(V, 2), de = v(ie), ge = b(ie, 2), le = v(ge), je = b(ge, 2);
                 {
                     var te = (fe)=>{
                         var G = dl(), Ee = et(G), ye = v(Ee), Te = b(Ee, 2), ae = v(Te);
-                        D((xe)=>{
-                            m(ye, xe), m(ae, c(y));
+                        R((xe)=>{
+                            m(ye, xe), m(ae, c(g));
                         }, [
-                            ()=>g("onboarding_msg_decrypted")
+                            ()=>y("onboarding_msg_decrypted")
                         ]), A(fe, G);
                     }, ce = (fe)=>{
                         var G = pl(), Ee = et(G);
                         {
                             var ye = (xe)=>{
                                 var It = vl(), yr = v(It);
-                                D(()=>m(yr, c(w))), A(xe, It);
+                                R(()=>m(yr, c(w))), A(xe, It);
                             };
-                            Y(Ee, (xe)=>{
+                            $(Ee, (xe)=>{
                                 c(w) && xe(ye);
                             });
                         }
                         var Te = b(Ee, 2), ae = v(Te);
-                        D((xe)=>{
+                        R((xe)=>{
                             Te.disabled = c(_), m(ae, xe);
                         }, [
-                            ()=>g("onboarding_msg_decrypt_btn")
-                        ]), X("click", Te, C), A(fe, G);
+                            ()=>y("onboarding_msg_decrypt_btn")
+                        ]), X("click", Te, M), A(fe, G);
                     };
-                    Y(je, (fe)=>{
-                        c(y) ? fe(te) : fe(ce, !1);
+                    $(je, (fe)=>{
+                        c(g) ? fe(te) : fe(ce, !1);
                     });
                 }
                 var Q = b(je, 2), ue = v(Q);
-                D((fe, G, Ee)=>{
+                R((fe, G, Ee)=>{
                     m(J, fe), m(de, G), m(le, c(h)), m(ue, Ee);
                 }, [
-                    ()=>g("onboarding_msg_title"),
-                    ()=>g("onboarding_msg_desc"),
-                    ()=>g("onboarding_msg_tip")
-                ]), A(x, N);
+                    ()=>y("onboarding_msg_title"),
+                    ()=>y("onboarding_msg_desc"),
+                    ()=>y("onboarding_msg_tip")
+                ]), A(x, C);
             }, _e = (x)=>{
-                var N = gl(), V = et(N), J = v(V), ie = b(V, 2), de = v(ie);
-                D((ge, le)=>{
+                var C = gl(), V = et(C), J = v(V), ie = b(V, 2), de = v(ie);
+                R((ge, le)=>{
                     m(J, ge), m(de, le);
                 }, [
-                    ()=>g("onboarding_done_title"),
-                    ()=>g("onboarding_done_desc")
-                ]), A(x, N);
+                    ()=>y("onboarding_done_title"),
+                    ()=>y("onboarding_done_desc")
+                ]), A(x, C);
             };
-            Y(T, (x)=>{
+            $(T, (x)=>{
                 c(n) === 0 ? x(j) : c(n) === 1 ? x(z, 1) : c(n) === 2 ? x(ee, 2) : c(n) === 3 && x(_e, 3);
             });
         }
-        var Ne = b(F, 2), $e = v(Ne);
+        var Ne = b(F, 2), Ye = v(Ne);
         {
             var pt = (x)=>{
-                var N = yl(), V = v(N);
-                D((J)=>m(V, J), [
-                    ()=>g("onboarding_prev")
-                ]), X("click", N, L), A(x, N);
+                var C = yl(), V = v(C);
+                R((J)=>m(V, J), [
+                    ()=>y("onboarding_prev")
+                ]), X("click", C, D), A(x, C);
             }, He = (x)=>{
-                var N = bl();
-                A(x, N);
+                var C = bl();
+                A(x, C);
             };
-            Y($e, (x)=>{
+            $(Ye, (x)=>{
                 c(n) > 0 ? x(pt) : x(He, !1);
             });
         }
-        var R = b($e, 2);
+        var O = b(Ye, 2);
         {
             var W = (x)=>{
-                var N = ml(), V = v(N);
-                D((J)=>{
-                    N.disabled = c(n) === 1 && !c(u), m(V, J);
+                var C = ml(), V = v(C);
+                R((J)=>{
+                    C.disabled = c(n) === 1 && !c(u), m(V, J);
                 }, [
-                    ()=>g("onboarding_next")
-                ]), X("click", N, E), A(x, N);
+                    ()=>y("onboarding_next")
+                ]), X("click", C, E), A(x, C);
             }, U = (x)=>{
-                var N = wl(), V = v(N);
-                D((J)=>m(V, J), [
-                    ()=>g("onboarding_finish")
-                ]), X("click", N, I), A(x, N);
+                var C = wl(), V = v(C);
+                R((J)=>m(V, J), [
+                    ()=>y("onboarding_finish")
+                ]), X("click", C, P), A(x, C);
             };
-            Y(R, (x)=>{
+            $(O, (x)=>{
                 c(n) < r - 1 ? x(W) : x(U, !1);
             });
         }
-        D((x)=>m(De, x), [
-            ()=>g("onboarding_skip")
-        ]), X("click", Se, P), A(e, K), dt();
+        R((x)=>m(De, x), [
+            ()=>y("onboarding_skip")
+        ]), X("click", Se, N), A(e, K), dt();
     }
     Pt([
         "click"
     ]);
-    var El = O('<p style="font-size: 0.875rem; color: var(--color-text-secondary);"> </p>'), Sl = O('<span style="font-size: 0.75rem; color: var(--color-primary);"> </span>'), Tl = O('<label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 0.375rem; border: 1px solid var(--color-border); cursor: pointer; font-size: 0.875rem;"><input type="checkbox"/> <span> </span> <!></label>'), Al = O('<div style="display: flex; flex-direction: column; gap: 0.375rem; max-height: 200px; overflow-y: auto;"></div>'), Pl = O('<p class="error"> </p>'), Il = O('<div style="position: relative;"><textarea class="textarea" readonly="" rows="8"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), Ol = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="5"></textarea> <div><p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;"> </p> <!></div> <button class="btn btn-primary"> </button> <!> <!></div>');
+    var El = I('<p style="font-size: 0.875rem; color: var(--color-text-secondary);"> </p>'), Sl = I('<span style="font-size: 0.75rem; color: var(--color-primary);"> </span>'), Tl = I('<label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 0.375rem; border: 1px solid var(--color-border); cursor: pointer; font-size: 0.875rem;"><input type="checkbox"/> <span> </span> <!></label>'), Al = I('<div style="display: flex; flex-direction: column; gap: 0.375rem; max-height: 200px; overflow-y: auto;"></div>'), Pl = I('<p class="error"> </p>'), Il = I('<div style="position: relative;"><textarea class="textarea" readonly="" rows="8"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), Ol = I('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="5"></textarea> <div><p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;"> </p> <!></div> <button class="btn btn-primary"> </button> <!> <!></div>');
     function Rl(e, t) {
         _t(t, !0);
         let r = S(""), n = S(""), i = S(""), o = S(rt([])), a = S(rt(new Set));
@@ -2804,11 +2804,11 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         }
         function u() {
             if (p(i, ""), p(n, ""), !c(r).trim()) {
-                p(i, g("encrypt_error_empty"), !0);
+                p(i, y("encrypt_error_empty"), !0);
                 return;
             }
             if (c(a).size === 0) {
-                p(i, g("encrypt_error_no_recipient"), !0);
+                p(i, y("encrypt_error_no_recipient"), !0);
                 return;
             }
             try {
@@ -2821,31 +2821,31 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         async function d() {
             await navigator.clipboard.writeText(c(n));
         }
-        var f = Ol(), h = v(f), y = v(h), _ = b(h, 2), w = b(_, 2), P = v(w), I = v(P), L = b(P, 2);
+        var f = Ol(), h = v(f), g = v(h), _ = b(h, 2), w = b(_, 2), N = v(w), P = v(N), D = b(N, 2);
         {
             var E = (F)=>{
                 var T = El(), j = v(T);
-                D((z)=>m(j, z), [
-                    ()=>g("encrypt_no_keys")
+                R((z)=>m(j, z), [
+                    ()=>y("encrypt_no_keys")
                 ]), A(F, T);
-            }, M = (F)=>{
+            }, L = (F)=>{
                 var T = Al();
                 vr(T, 21, ()=>c(o), (j)=>j.fingerprint, (j, z)=>{
                     var ee = Tl();
                     let _e;
-                    var Ne = v(ee), $e = b(Ne, 2), pt = v($e), He = b($e, 2);
+                    var Ne = v(ee), Ye = b(Ne, 2), pt = v(Ye), He = b(Ye, 2);
                     {
-                        var R = (W)=>{
+                        var O = (W)=>{
                             var U = Sl(), x = v(U);
-                            D((N)=>m(x, N), [
-                                ()=>g("encrypt_own_label")
+                            R((C)=>m(x, C), [
+                                ()=>y("encrypt_own_label")
                             ]), A(W, U);
                         };
-                        Y(He, (W)=>{
-                            c(z).isOwn && W(R);
+                        $(He, (W)=>{
+                            c(z).isOwn && W(O);
                         });
                     }
-                    D((W, U, x)=>{
+                    R((W, U, x)=>{
                         _e = gt(ee, 1, "svelte-recwdw", null, _e, W), jo(Ne, U), m(pt, x);
                     }, [
                         ()=>({
@@ -2856,195 +2856,195 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     ]), X("change", Ne, ()=>l(c(z).fingerprint)), A(j, ee);
                 }), A(F, T);
             };
-            Y(L, (F)=>{
-                c(o).length === 0 ? F(E) : F(M, !1);
+            $(D, (F)=>{
+                c(o).length === 0 ? F(E) : F(L, !1);
             });
         }
-        var C = b(w, 2), K = v(C), q = b(C, 2);
+        var M = b(w, 2), K = v(M), q = b(M, 2);
         {
-            var $ = (F)=>{
+            var Y = (F)=>{
                 var T = Pl(), j = v(T);
-                D(()=>m(j, c(i))), A(F, T);
+                R(()=>m(j, c(i))), A(F, T);
             };
-            Y(q, (F)=>{
-                c(i) && F($);
+            $(q, (F)=>{
+                c(i) && F(Y);
             });
         }
         var Se = b(q, 2);
         {
             var De = (F)=>{
                 var T = Il(), j = v(T), z = b(j, 2), ee = v(z);
-                D((_e)=>{
+                R((_e)=>{
                     Gr(j, c(n)), m(ee, _e);
                 }, [
-                    ()=>g("copy_btn")
+                    ()=>y("copy_btn")
                 ]), X("click", z, d), A(F, T);
             };
-            Y(Se, (F)=>{
+            $(Se, (F)=>{
                 c(n) && F(De);
             });
         }
-        D((F, T, j, z, ee)=>{
-            m(y, F), Oe(_, "placeholder", T), m(I, j), C.disabled = z, m(K, ee);
+        R((F, T, j, z, ee)=>{
+            m(g, F), Oe(_, "placeholder", T), m(P, j), M.disabled = z, m(K, ee);
         }, [
-            ()=>g("encrypt_title"),
-            ()=>g("encrypt_placeholder"),
-            ()=>g("encrypt_recipients"),
+            ()=>y("encrypt_title"),
+            ()=>y("encrypt_placeholder"),
+            ()=>y("encrypt_recipients"),
             ()=>!c(r).trim() || c(a).size === 0,
-            ()=>g("encrypt_btn")
-        ]), Me(_, ()=>c(r), (F)=>p(r, F)), X("click", C, u), A(e, f), dt();
+            ()=>y("encrypt_btn")
+        ]), Me(_, ()=>c(r), (F)=>p(r, F)), X("click", M, u), A(e, f), dt();
     }
     Pt([
         "change",
         "click"
     ]);
-    var Dl = O('<p class="error"> </p>'), Ll = O('<div style="position: relative;"><textarea class="textarea" readonly="" rows="6"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), Ml = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <input type="password" class="input"/> <button class="btn btn-primary"> </button> <!> <!></div>');
+    var Dl = I('<p class="error"> </p>'), Ll = I('<div style="position: relative;"><textarea class="textarea" readonly="" rows="6"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), Ml = I('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <input type="password" class="input"/> <button class="btn btn-primary"> </button> <!> <!></div>');
     function Cl(e, t) {
         _t(t, !0);
         let r = S(""), n = S(""), i = S(""), o = S("");
         async function a() {
             if (p(o, ""), p(i, ""), !c(r).trim()) {
-                p(o, g("decrypt_error_empty"), !0);
+                p(o, y("decrypt_error_empty"), !0);
                 return;
             }
-            const M = (await tr()).filter((C)=>C.isOwn);
-            if (M.length === 0) {
-                p(o, g("decrypt_error_no_key"), !0);
+            const L = (await tr()).filter((M)=>M.isOwn);
+            if (L.length === 0) {
+                p(o, y("decrypt_error_no_key"), !0);
                 return;
             }
-            for (const C of M){
-                const K = await Wr(C.fingerprint);
+            for (const M of L){
+                const K = await Wr(M.fingerprint);
                 if (K) try {
                     p(i, ai(c(r), K, c(n) || void 0), !0);
                     return;
                 } catch  {}
             }
-            p(o, g("decrypt_error_failed"), !0);
+            p(o, y("decrypt_error_failed"), !0);
         }
         async function s() {
             await navigator.clipboard.writeText(c(i));
         }
-        var l = Ml(), u = v(l), d = v(u), f = b(u, 2), h = b(f, 2), y = b(h, 2), _ = v(y), w = b(y, 2);
+        var l = Ml(), u = v(l), d = v(u), f = b(u, 2), h = b(f, 2), g = b(h, 2), _ = v(g), w = b(g, 2);
         {
-            var P = (E)=>{
-                var M = Dl(), C = v(M);
-                D(()=>m(C, c(o))), A(E, M);
+            var N = (E)=>{
+                var L = Dl(), M = v(L);
+                R(()=>m(M, c(o))), A(E, L);
             };
-            Y(w, (E)=>{
-                c(o) && E(P);
+            $(w, (E)=>{
+                c(o) && E(N);
             });
         }
-        var I = b(w, 2);
+        var P = b(w, 2);
         {
-            var L = (E)=>{
-                var M = Ll(), C = v(M), K = b(C, 2), q = v(K);
-                D(($)=>{
-                    Gr(C, c(i)), m(q, $);
+            var D = (E)=>{
+                var L = Ll(), M = v(L), K = b(M, 2), q = v(K);
+                R((Y)=>{
+                    Gr(M, c(i)), m(q, Y);
                 }, [
-                    ()=>g("copy_btn")
-                ]), X("click", K, s), A(E, M);
+                    ()=>y("copy_btn")
+                ]), X("click", K, s), A(E, L);
             };
-            Y(I, (E)=>{
-                c(i) && E(L);
+            $(P, (E)=>{
+                c(i) && E(D);
             });
         }
-        D((E, M, C, K, q)=>{
-            m(d, E), Oe(f, "placeholder", M), Oe(h, "placeholder", C), y.disabled = K, m(_, q);
+        R((E, L, M, K, q)=>{
+            m(d, E), Oe(f, "placeholder", L), Oe(h, "placeholder", M), g.disabled = K, m(_, q);
         }, [
-            ()=>g("decrypt_title"),
-            ()=>g("decrypt_placeholder"),
-            ()=>g("decrypt_passphrase"),
+            ()=>y("decrypt_title"),
+            ()=>y("decrypt_placeholder"),
+            ()=>y("decrypt_passphrase"),
             ()=>!c(r).trim(),
-            ()=>g("decrypt_btn")
-        ]), Me(f, ()=>c(r), (E)=>p(r, E)), Me(h, ()=>c(n), (E)=>p(n, E)), X("click", y, a), A(e, l), dt();
+            ()=>y("decrypt_btn")
+        ]), Me(f, ()=>c(r), (E)=>p(r, E)), Me(h, ()=>c(n), (E)=>p(n, E)), X("click", g, a), A(e, l), dt();
     }
     Pt([
         "click"
     ]);
-    var Nl = O('<p class="error"> </p>'), jl = O('<div style="position: relative;"><textarea class="textarea" readonly="" rows="8"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), zl = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="5"></textarea> <input type="password" class="input"/> <button class="btn btn-primary"> </button> <!> <!></div>');
+    var Nl = I('<p class="error"> </p>'), jl = I('<div style="position: relative;"><textarea class="textarea" readonly="" rows="8"></textarea> <button class="btn" style="position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div>'), zl = I('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="5"></textarea> <input type="password" class="input"/> <button class="btn btn-primary"> </button> <!> <!></div>');
     function Kl(e, t) {
         _t(t, !0);
         let r = S(""), n = S(""), i = S(""), o = S("");
         async function a() {
             if (p(o, ""), p(i, ""), !c(r).trim()) {
-                p(o, g("sign_error_empty"), !0);
+                p(o, y("sign_error_empty"), !0);
                 return;
             }
-            const M = (await tr()).filter((C)=>C.isOwn);
-            if (M.length === 0) {
-                p(o, g("sign_error_no_key"), !0);
+            const L = (await tr()).filter((M)=>M.isOwn);
+            if (L.length === 0) {
+                p(o, y("sign_error_no_key"), !0);
                 return;
             }
-            for (const C of M){
-                const K = await Wr(C.fingerprint);
+            for (const M of L){
+                const K = await Wr(M.fingerprint);
                 if (K) try {
-                    p(i, $s(c(r), K, c(n) || void 0), !0);
+                    p(i, Ys(c(r), K, c(n) || void 0), !0);
                     return;
                 } catch  {}
             }
-            p(o, g("sign_error_failed"), !0);
+            p(o, y("sign_error_failed"), !0);
         }
         async function s() {
             await navigator.clipboard.writeText(c(i));
         }
-        var l = zl(), u = v(l), d = v(u), f = b(u, 2), h = b(f, 2), y = b(h, 2), _ = v(y), w = b(y, 2);
+        var l = zl(), u = v(l), d = v(u), f = b(u, 2), h = b(f, 2), g = b(h, 2), _ = v(g), w = b(g, 2);
         {
-            var P = (E)=>{
-                var M = Nl(), C = v(M);
-                D(()=>m(C, c(o))), A(E, M);
+            var N = (E)=>{
+                var L = Nl(), M = v(L);
+                R(()=>m(M, c(o))), A(E, L);
             };
-            Y(w, (E)=>{
-                c(o) && E(P);
+            $(w, (E)=>{
+                c(o) && E(N);
             });
         }
-        var I = b(w, 2);
+        var P = b(w, 2);
         {
-            var L = (E)=>{
-                var M = jl(), C = v(M), K = b(C, 2), q = v(K);
-                D(($)=>{
-                    Gr(C, c(i)), m(q, $);
+            var D = (E)=>{
+                var L = jl(), M = v(L), K = b(M, 2), q = v(K);
+                R((Y)=>{
+                    Gr(M, c(i)), m(q, Y);
                 }, [
-                    ()=>g("copy_btn")
-                ]), X("click", K, s), A(E, M);
+                    ()=>y("copy_btn")
+                ]), X("click", K, s), A(E, L);
             };
-            Y(I, (E)=>{
-                c(i) && E(L);
+            $(P, (E)=>{
+                c(i) && E(D);
             });
         }
-        D((E, M, C, K, q)=>{
-            m(d, E), Oe(f, "placeholder", M), Oe(h, "placeholder", C), y.disabled = K, m(_, q);
+        R((E, L, M, K, q)=>{
+            m(d, E), Oe(f, "placeholder", L), Oe(h, "placeholder", M), g.disabled = K, m(_, q);
         }, [
-            ()=>g("sign_title"),
-            ()=>g("sign_placeholder"),
-            ()=>g("sign_passphrase"),
+            ()=>y("sign_title"),
+            ()=>y("sign_placeholder"),
+            ()=>y("sign_passphrase"),
             ()=>!c(r).trim(),
-            ()=>g("sign_btn")
-        ]), Me(f, ()=>c(r), (E)=>p(r, E)), Me(h, ()=>c(n), (E)=>p(n, E)), X("click", y, a), A(e, l), dt();
+            ()=>y("sign_btn")
+        ]), Me(f, ()=>c(r), (E)=>p(r, E)), Me(h, ()=>c(n), (E)=>p(n, E)), X("click", g, a), A(e, l), dt();
     }
     Pt([
         "click"
     ]);
-    var Fl = O('<p class="error"> </p>'), Vl = O('<p style="font-size: 0.75rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p>'), Gl = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-success); background: rgba(34, 197, 94, 0.1);"><p class="success" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p> <!></div>'), ql = O('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-danger); background: rgba(239, 68, 68, 0.1);"><p class="error" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p></div>'), Wl = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <button class="btn btn-primary"> </button> <!> <!></div>');
+    var Fl = I('<p class="error"> </p>'), Vl = I('<p style="font-size: 0.75rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p>'), Gl = I('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-success); background: rgba(34, 197, 94, 0.1);"><p class="success" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p> <!></div>'), ql = I('<div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--color-danger); background: rgba(239, 68, 68, 0.1);"><p class="error" style="font-weight: 600;"> </p> <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem;"> </p></div>'), Wl = I('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <textarea class="textarea" rows="8"></textarea> <button class="btn btn-primary"> </button> <!> <!></div>');
     function Bl(e, t) {
         _t(t, !0);
         let r = S(""), n = S(null), i = S(""), o = S("");
         async function a() {
             if (p(o, ""), p(n, null), p(i, ""), !c(r).trim()) {
-                p(o, g("verify_error_empty"), !0);
+                p(o, y("verify_error_empty"), !0);
                 return;
             }
-            const I = await tr();
-            if (I.length === 0) {
-                p(o, g("verify_error_no_keys"), !0);
+            const P = await tr();
+            if (P.length === 0) {
+                p(o, y("verify_error_no_keys"), !0);
                 return;
             }
-            for (const L of I)try {
-                const E = Hs(c(r), L.publicKey);
+            for (const D of P)try {
+                const E = Hs(c(r), D.publicKey);
                 if (E.valid) {
                     p(n, {
                         valid: !0,
                         fingerprint: E.signer_fingerprint
-                    }, !0), p(i, L.name ?? L.email ?? L.fingerprint.slice(-16), !0);
+                    }, !0), p(i, D.name ?? D.email ?? D.fingerprint.slice(-16), !0);
                     return;
                 }
             } catch  {}
@@ -3053,227 +3053,227 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                 fingerprint: null
             }, !0);
         }
-        var s = Wl(), l = v(s), u = v(l), d = b(l, 2), f = b(d, 2), h = v(f), y = b(f, 2);
+        var s = Wl(), l = v(s), u = v(l), d = b(l, 2), f = b(d, 2), h = v(f), g = b(f, 2);
         {
-            var _ = (I)=>{
-                var L = Fl(), E = v(L);
-                D(()=>m(E, c(o))), A(I, L);
+            var _ = (P)=>{
+                var D = Fl(), E = v(D);
+                R(()=>m(E, c(o))), A(P, D);
             };
-            Y(y, (I)=>{
-                c(o) && I(_);
+            $(g, (P)=>{
+                c(o) && P(_);
             });
         }
-        var w = b(y, 2);
+        var w = b(g, 2);
         {
-            var P = (I)=>{
-                var L = wo(), E = et(L);
+            var N = (P)=>{
+                var D = wo(), E = et(D);
                 {
-                    var M = (K)=>{
-                        var q = Gl(), $ = v(q), Se = v($), De = b($, 2), F = v(De), T = b(De, 2);
+                    var L = (K)=>{
+                        var q = Gl(), Y = v(q), Se = v(Y), De = b(Y, 2), F = v(De), T = b(De, 2);
                         {
                             var j = (z)=>{
                                 var ee = Vl(), _e = v(ee);
-                                D(()=>m(_e, c(n).fingerprint)), A(z, ee);
+                                R(()=>m(_e, c(n).fingerprint)), A(z, ee);
                             };
-                            Y(T, (z)=>{
+                            $(T, (z)=>{
                                 c(n).fingerprint && z(j);
                             });
                         }
-                        D((z, ee)=>{
+                        R((z, ee)=>{
                             m(Se, z), m(F, ee);
                         }, [
-                            ()=>g("verify_valid"),
-                            ()=>g("verify_signed_by", {
+                            ()=>y("verify_valid"),
+                            ()=>y("verify_signed_by", {
                                     name: c(i)
                                 })
                         ]), A(K, q);
-                    }, C = (K)=>{
-                        var q = ql(), $ = v(q), Se = v($), De = b($, 2), F = v(De);
-                        D((T, j)=>{
+                    }, M = (K)=>{
+                        var q = ql(), Y = v(q), Se = v(Y), De = b(Y, 2), F = v(De);
+                        R((T, j)=>{
                             m(Se, T), m(F, j);
                         }, [
-                            ()=>g("verify_failed"),
-                            ()=>g("verify_signer_not_found")
+                            ()=>y("verify_failed"),
+                            ()=>y("verify_signer_not_found")
                         ]), A(K, q);
                     };
-                    Y(E, (K)=>{
-                        c(n).valid ? K(M) : K(C, !1);
+                    $(E, (K)=>{
+                        c(n).valid ? K(L) : K(M, !1);
                     });
                 }
-                A(I, L);
+                A(P, D);
             };
-            Y(w, (I)=>{
-                c(n) && I(P);
+            $(w, (P)=>{
+                c(n) && P(N);
             });
         }
-        D((I, L, E, M)=>{
-            m(u, I), Oe(d, "placeholder", L), f.disabled = E, m(h, M);
+        R((P, D, E, L)=>{
+            m(u, P), Oe(d, "placeholder", D), f.disabled = E, m(h, L);
         }, [
-            ()=>g("verify_title"),
-            ()=>g("verify_placeholder"),
+            ()=>y("verify_title"),
+            ()=>y("verify_placeholder"),
             ()=>!c(r).trim(),
-            ()=>g("verify_btn")
-        ]), Me(d, ()=>c(r), (I)=>p(r, I)), X("click", f, a), A(e, s), dt();
+            ()=>y("verify_btn")
+        ]), Me(d, ()=>c(r), (P)=>p(r, P)), X("click", f, a), A(e, s), dt();
     }
     Pt([
         "click"
     ]);
-    var Ul = O('<p class="success"> </p>'), Yl = O('<p class="error"> </p>'), $l = O('<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><p style="font-size: 0.875rem; font-weight: 500;"> </p> <input class="input"/> <input class="input"/> <input class="input" type="password"/> <!> <div style="display: flex; gap: 0.5rem; justify-content: flex-end;"><button class="btn"> </button> <button class="btn btn-primary"> </button></div></div>'), Hl = O('<p class="error"> </p>'), Xl = O('<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><p style="font-size: 0.875rem; font-weight: 500;"> </p> <textarea class="textarea" rows="6"></textarea> <!> <div style="display: flex; gap: 0.5rem; justify-content: flex-end;"><button class="btn"> </button> <button class="btn btn-primary"> </button></div></div>'), Jl = O('<p style="font-size: 0.875rem; color: var(--color-text-secondary); text-align: center; padding: 2rem 0;"> </p>'), Zl = O('<span style="font-size: 0.75rem; color: var(--color-primary); font-weight: normal;"> </span>'), Ql = O('<div class="key-row svelte-1byd03e" style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><div style="min-width: 0; flex: 1;"><p style="font-size: 0.875rem; font-weight: 500;"> <!></p> <p style="font-size: 0.75rem; color: var(--color-text-secondary);"> </p> <p style="font-size: 0.625rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p></div> <div class="key-actions svelte-1byd03e" style="display: flex; gap: 0.375rem; flex-shrink: 0;"><button class="btn" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button> <button class="btn btn-danger" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div></div>'), ec = O('<div style="display: flex; flex-direction: column; gap: 0.5rem;"></div>'), tc = O('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><div style="display: flex; align-items: center; justify-content: space-between;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <div style="display: flex; gap: 0.5rem;"><button class="btn btn-primary"> </button> <button class="btn"> </button></div></div> <!> <!> <!> <!></div>');
+    var Ul = I('<p class="success"> </p>'), $l = I('<p class="error"> </p>'), Yl = I('<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><p style="font-size: 0.875rem; font-weight: 500;"> </p> <input class="input"/> <input class="input"/> <input class="input" type="password"/> <!> <div style="display: flex; gap: 0.5rem; justify-content: flex-end;"><button class="btn"> </button> <button class="btn btn-primary"> </button></div></div>'), Hl = I('<p class="error"> </p>'), Xl = I('<div style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><p style="font-size: 0.875rem; font-weight: 500;"> </p> <textarea class="textarea" rows="6"></textarea> <!> <div style="display: flex; gap: 0.5rem; justify-content: flex-end;"><button class="btn"> </button> <button class="btn btn-primary"> </button></div></div>'), Jl = I('<p style="font-size: 0.875rem; color: var(--color-text-secondary); text-align: center; padding: 2rem 0;"> </p>'), Zl = I('<span style="font-size: 0.75rem; color: var(--color-primary); font-weight: normal;"> </span>'), Ql = I('<div class="key-row svelte-1byd03e" style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border: 1px solid var(--color-border); border-radius: 0.5rem;"><div style="min-width: 0; flex: 1;"><p style="font-size: 0.875rem; font-weight: 500;"> <!></p> <p style="font-size: 0.75rem; color: var(--color-text-secondary);"> </p> <p style="font-size: 0.625rem; color: var(--color-text-secondary); font-family: var(--color-font-mono);"> </p></div> <div class="key-actions svelte-1byd03e" style="display: flex; gap: 0.375rem; flex-shrink: 0;"><button class="btn" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button> <button class="btn btn-danger" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;"> </button></div></div>'), ec = I('<div style="display: flex; flex-direction: column; gap: 0.5rem;"></div>'), tc = I('<div class="card" style="display: flex; flex-direction: column; gap: 1rem;"><div style="display: flex; align-items: center; justify-content: space-between;"><h2 style="font-size: 1rem; font-weight: 600;"> </h2> <div style="display: flex; gap: 0.5rem;"><button class="btn btn-primary"> </button> <button class="btn"> </button></div></div> <!> <!> <!> <!></div>');
     function rc(e, t) {
         _t(t, !0);
-        let r = S(rt([])), n = S(!1), i = S(!1), o = S(""), a = S(""), s = S(""), l = S(""), u = S(!1), d = S(""), f = S(""), h = S(!1), y = S("");
+        let r = S(rt([])), n = S(!1), i = S(!1), o = S(""), a = S(""), s = S(""), l = S(""), u = S(!1), d = S(""), f = S(""), h = S(!1), g = S("");
         async function _() {
             p(r, await tr(), !0);
         }
         _();
         async function w() {
             if (p(l, ""), !c(o).trim() || !c(a).trim()) {
-                p(l, g("keygen_error_required"), !0);
+                p(l, y("keygen_error_required"), !0);
                 return;
             }
             p(u, !0);
             try {
-                const R = ii(c(o), c(a), c(s) || void 0), W = Rr(R.public_key);
-                await Dr(R.fingerprint, W.user_ids[0]?.name ?? null, W.user_ids[0]?.email ?? null, R.public_key, R.secret_key), await _(), p(n, !1), p(o, ""), p(a, ""), p(s, ""), p(y, g("keygen_success"), !0), setTimeout(()=>p(y, ""), 3e3);
-            } catch (R) {
-                p(l, String(R), !0);
+                const O = ii(c(o), c(a), c(s) || void 0), W = Rr(O.public_key);
+                await Dr(O.fingerprint, W.user_ids[0]?.name ?? null, W.user_ids[0]?.email ?? null, O.public_key, O.secret_key), await _(), p(n, !1), p(o, ""), p(a, ""), p(s, ""), p(g, y("keygen_success"), !0), setTimeout(()=>p(g, ""), 3e3);
+            } catch (O) {
+                p(l, String(O), !0);
             } finally{
                 p(u, !1);
             }
         }
-        async function P() {
+        async function N() {
             if (p(f, ""), !c(d).trim()) {
-                p(f, g("import_error_empty"), !0);
+                p(f, y("import_error_empty"), !0);
                 return;
             }
             p(h, !0);
             try {
-                const R = Rr(c(d)), W = R.user_ids[0]?.name ?? null, U = R.user_ids[0]?.email ?? null, x = R.has_secret_key ? c(d) : null;
-                await Dr(R.fingerprint, W, U, c(d), x), await _(), p(i, !1), p(d, ""), p(y, g("import_success", {
-                    name: W ?? U ?? R.fingerprint.slice(-16)
-                }), !0), setTimeout(()=>p(y, ""), 3e3);
-            } catch (R) {
-                p(f, String(R), !0);
+                const O = Rr(c(d)), W = O.user_ids[0]?.name ?? null, U = O.user_ids[0]?.email ?? null, x = O.has_secret_key ? c(d) : null;
+                await Dr(O.fingerprint, W, U, c(d), x), await _(), p(i, !1), p(d, ""), p(g, y("import_success", {
+                    name: W ?? U ?? O.fingerprint.slice(-16)
+                }), !0), setTimeout(()=>p(g, ""), 3e3);
+            } catch (O) {
+                p(f, String(O), !0);
             } finally{
                 p(h, !1);
             }
         }
-        async function I(R) {
-            await al(R), await _(), p(y, g("key_deleted"), !0), setTimeout(()=>p(y, ""), 3e3);
+        async function P(O) {
+            await al(O), await _(), p(g, y("key_deleted"), !0), setTimeout(()=>p(g, ""), 3e3);
         }
-        async function L(R) {
-            await navigator.clipboard.writeText(R.publicKey), p(y, g("key_exported"), !0), setTimeout(()=>p(y, ""), 3e3);
+        async function D(O) {
+            await navigator.clipboard.writeText(O.publicKey), p(g, y("key_exported"), !0), setTimeout(()=>p(g, ""), 3e3);
         }
-        var E = tc(), M = v(E), C = v(M), K = v(C), q = b(C, 2), $ = v(q), Se = v($), De = b($, 2), F = v(De), T = b(M, 2);
+        var E = tc(), L = v(E), M = v(L), K = v(M), q = b(M, 2), Y = v(q), Se = v(Y), De = b(Y, 2), F = v(De), T = b(L, 2);
         {
-            var j = (R)=>{
+            var j = (O)=>{
                 var W = Ul(), U = v(W);
-                D(()=>m(U, c(y))), A(R, W);
+                R(()=>m(U, c(g))), A(O, W);
             };
-            Y(T, (R)=>{
-                c(y) && R(j);
+            $(T, (O)=>{
+                c(g) && O(j);
             });
         }
         var z = b(T, 2);
         {
-            var ee = (R)=>{
-                var W = $l(), U = v(W), x = v(U), N = b(U, 2), V = b(N, 2), J = b(V, 2), ie = b(J, 2);
+            var ee = (O)=>{
+                var W = Yl(), U = v(W), x = v(U), C = b(U, 2), V = b(C, 2), J = b(V, 2), ie = b(J, 2);
                 {
                     var de = (Q)=>{
-                        var ue = Yl(), fe = v(ue);
-                        D(()=>m(fe, c(l))), A(Q, ue);
+                        var ue = $l(), fe = v(ue);
+                        R(()=>m(fe, c(l))), A(Q, ue);
                     };
-                    Y(ie, (Q)=>{
+                    $(ie, (Q)=>{
                         c(l) && Q(de);
                     });
                 }
                 var ge = b(ie, 2), le = v(ge), je = v(le), te = b(le, 2), ce = v(te);
-                D((Q, ue, fe, G, Ee, ye)=>{
-                    m(x, Q), Oe(N, "placeholder", ue), Oe(V, "placeholder", fe), Oe(J, "placeholder", G), m(je, Ee), te.disabled = c(u), m(ce, ye);
+                R((Q, ue, fe, G, Ee, ye)=>{
+                    m(x, Q), Oe(C, "placeholder", ue), Oe(V, "placeholder", fe), Oe(J, "placeholder", G), m(je, Ee), te.disabled = c(u), m(ce, ye);
                 }, [
-                    ()=>g("keygen_title"),
-                    ()=>g("keygen_name"),
-                    ()=>g("keygen_email"),
-                    ()=>g("keygen_passphrase"),
-                    ()=>g("keygen_cancel"),
-                    ()=>c(u) ? g("keygen_loading") : g("keygen_submit")
-                ]), Me(N, ()=>c(o), (Q)=>p(o, Q)), Me(V, ()=>c(a), (Q)=>p(a, Q)), Me(J, ()=>c(s), (Q)=>p(s, Q)), X("click", le, ()=>p(n, !1)), X("click", te, w), A(R, W);
+                    ()=>y("keygen_title"),
+                    ()=>y("keygen_name"),
+                    ()=>y("keygen_email"),
+                    ()=>y("keygen_passphrase"),
+                    ()=>y("keygen_cancel"),
+                    ()=>c(u) ? y("keygen_loading") : y("keygen_submit")
+                ]), Me(C, ()=>c(o), (Q)=>p(o, Q)), Me(V, ()=>c(a), (Q)=>p(a, Q)), Me(J, ()=>c(s), (Q)=>p(s, Q)), X("click", le, ()=>p(n, !1)), X("click", te, w), A(O, W);
             };
-            Y(z, (R)=>{
-                c(n) && R(ee);
+            $(z, (O)=>{
+                c(n) && O(ee);
             });
         }
         var _e = b(z, 2);
         {
-            var Ne = (R)=>{
-                var W = Xl(), U = v(W), x = v(U), N = b(U, 2), V = b(N, 2);
+            var Ne = (O)=>{
+                var W = Xl(), U = v(W), x = v(U), C = b(U, 2), V = b(C, 2);
                 {
                     var J = (te)=>{
                         var ce = Hl(), Q = v(ce);
-                        D(()=>m(Q, c(f))), A(te, ce);
+                        R(()=>m(Q, c(f))), A(te, ce);
                     };
-                    Y(V, (te)=>{
+                    $(V, (te)=>{
                         c(f) && te(J);
                     });
                 }
                 var ie = b(V, 2), de = v(ie), ge = v(de), le = b(de, 2), je = v(le);
-                D((te, ce, Q, ue)=>{
-                    m(x, te), Oe(N, "placeholder", ce), m(ge, Q), le.disabled = c(h), m(je, ue);
+                R((te, ce, Q, ue)=>{
+                    m(x, te), Oe(C, "placeholder", ce), m(ge, Q), le.disabled = c(h), m(je, ue);
                 }, [
-                    ()=>g("import_title"),
-                    ()=>g("import_placeholder"),
-                    ()=>g("import_cancel"),
-                    ()=>c(h) ? g("import_loading") : g("import_submit")
-                ]), Me(N, ()=>c(d), (te)=>p(d, te)), X("click", de, ()=>p(i, !1)), X("click", le, P), A(R, W);
+                    ()=>y("import_title"),
+                    ()=>y("import_placeholder"),
+                    ()=>y("import_cancel"),
+                    ()=>c(h) ? y("import_loading") : y("import_submit")
+                ]), Me(C, ()=>c(d), (te)=>p(d, te)), X("click", de, ()=>p(i, !1)), X("click", le, N), A(O, W);
             };
-            Y(_e, (R)=>{
-                c(i) && R(Ne);
+            $(_e, (O)=>{
+                c(i) && O(Ne);
             });
         }
-        var $e = b(_e, 2);
+        var Ye = b(_e, 2);
         {
-            var pt = (R)=>{
+            var pt = (O)=>{
                 var W = Jl(), U = v(W);
-                D((x)=>m(U, x), [
-                    ()=>g("keys_empty")
-                ]), A(R, W);
-            }, He = (R)=>{
+                R((x)=>m(U, x), [
+                    ()=>y("keys_empty")
+                ]), A(O, W);
+            }, He = (O)=>{
                 var W = ec();
                 vr(W, 21, ()=>c(r), (U)=>U.fingerprint, (U, x)=>{
-                    var N = Ql(), V = v(N), J = v(V), ie = v(J), de = b(ie);
+                    var C = Ql(), V = v(C), J = v(V), ie = v(J), de = b(ie);
                     {
                         var ge = (ye)=>{
                             var Te = Zl(), ae = v(Te);
-                            D((xe)=>m(ae, xe), [
-                                ()=>g("keys_own_label")
+                            R((xe)=>m(ae, xe), [
+                                ()=>y("keys_own_label")
                             ]), A(ye, Te);
                         };
-                        Y(de, (ye)=>{
+                        $(de, (ye)=>{
                             c(x).isOwn && ye(ge);
                         });
                     }
                     var le = b(J, 2), je = v(le), te = b(le, 2), ce = v(te), Q = b(V, 2), ue = v(Q), fe = v(ue), G = b(ue, 2), Ee = v(G);
-                    D((ye, Te, ae, xe)=>{
+                    R((ye, Te, ae, xe)=>{
                         m(ie, `${ye ?? ""} `), m(je, c(x).email ?? ""), m(ce, Te), m(fe, ae), m(Ee, xe);
                     }, [
-                        ()=>c(x).name ?? g("keys_unnamed"),
+                        ()=>c(x).name ?? y("keys_unnamed"),
                         ()=>c(x).fingerprint.slice(-16),
-                        ()=>g("key_export_btn"),
-                        ()=>g("key_delete_btn")
-                    ]), X("click", ue, ()=>L(c(x))), X("click", G, ()=>I(c(x).fingerprint)), A(U, N);
-                }), A(R, W);
+                        ()=>y("key_export_btn"),
+                        ()=>y("key_delete_btn")
+                    ]), X("click", ue, ()=>D(c(x))), X("click", G, ()=>P(c(x).fingerprint)), A(U, C);
+                }), A(O, W);
             };
-            Y($e, (R)=>{
-                c(r).length === 0 ? R(pt) : R(He, !1);
+            $(Ye, (O)=>{
+                c(r).length === 0 ? O(pt) : O(He, !1);
             });
         }
-        D((R, W, U)=>{
-            m(K, R), m(Se, W), m(F, U);
+        R((O, W, U)=>{
+            m(K, O), m(Se, W), m(F, U);
         }, [
-            ()=>g("keys_title"),
-            ()=>g("keys_generate_btn"),
-            ()=>g("keys_import_btn")
-        ]), X("click", $, ()=>{
+            ()=>y("keys_title"),
+            ()=>y("keys_generate_btn"),
+            ()=>y("keys_import_btn")
+        ]), X("click", Y, ()=>{
             p(n, !c(n)), p(i, !1);
         }), X("click", De, ()=>{
             p(i, !c(i)), p(n, !1);
@@ -3282,7 +3282,7 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
     Pt([
         "click"
     ]);
-    var nc = O('<option class="svelte-1n46o8q"> </option>'), ic = Zn('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'), oc = Zn('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'), ac = O('<div class="card" style="text-align: center;"><p class="error"> </p></div>'), sc = O('<div class="card" style="text-align: center;"><p style="color: var(--color-text-secondary);"> </p></div>'), lc = O('<!> <div class="tabs"><button> </button> <button> </button> <button> </button> <button> </button> <button> </button></div> <!>', 1), cc = O('<header style="text-align: center; margin-bottom: 2rem; position: relative;"><div class="header-controls svelte-1n46o8q"><select class="locale-select svelte-1n46o8q"></select> <button class="theme-toggle svelte-1n46o8q"><!></button></div> <h1 style="font-size: 1.5rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;"><img src="./icon.png" alt="" style="width: 32px; height: 32px; border-radius: 6px;"/> KeychainPGP <span style="color: var(--color-text-secondary); font-weight: 400; font-size: 0.875rem;">Web</span></h1> <p style="color: var(--color-text-secondary); font-size: 0.875rem; margin-top: 0.25rem;"> </p></header> <!> <footer style="text-align: center; margin-top: 3rem; color: var(--color-text-secondary); font-size: 0.75rem;"><p> </p></footer>', 1);
+    var nc = I('<option class="svelte-1n46o8q"> </option>'), ic = Zn('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'), oc = Zn('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'), ac = I('<div class="card" style="text-align: center;"><p class="error"> </p></div>'), sc = I('<div class="card" style="text-align: center;"><p style="color: var(--color-text-secondary);"> </p></div>'), lc = I('<!> <div class="tabs"><button> </button> <button> </button> <button> </button> <button> </button> <button> </button></div> <!>', 1), cc = I('<header style="text-align: center; margin-bottom: 2rem; position: relative;"><div class="header-controls svelte-1n46o8q"><select class="locale-select svelte-1n46o8q"></select> <button class="theme-toggle svelte-1n46o8q"><!></button></div> <h1 style="font-size: 1.5rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center;"><img src="./icon.png" alt="" style="width: 32px; height: 32px; border-radius: 6px;"/> KeychainPGP <span style="color: var(--color-text-secondary); font-weight: 400; font-size: 0.875rem;">Web</span></h1> <p style="color: var(--color-text-secondary); font-size: 0.875rem; margin-top: 0.25rem;"> </p></header> <!> <footer style="text-align: center; margin-top: 3rem; color: var(--color-text-secondary); font-size: 0.75rem;"><p> </p></footer>', 1);
     function uc(e, t) {
         _t(t, !0);
         let r = S(!1), n = S(""), i = S("encrypt"), o = S(rt(Xs())), a = S(!el());
@@ -3296,47 +3296,47 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
         }
         async function u() {
             try {
-                await Ys(), p(r, !0);
+                await $s(), p(r, !0);
             } catch (T) {
-                p(n, g("loading_error", {
+                p(n, y("loading_error", {
                     error: String(T)
                 }), !0);
             }
         }
         u();
-        var d = cc(), f = et(d), h = v(f), y = v(h);
-        vr(y, 21, ()=>$t, (T)=>T.code, (T, j)=>{
+        var d = cc(), f = et(d), h = v(f), g = v(h);
+        vr(g, 21, ()=>Yt, (T)=>T.code, (T, j)=>{
             var z = nc(), ee = v(z), _e = {};
-            D(()=>{
+            R(()=>{
                 m(ee, c(j).name), _e !== (_e = c(j).code) && (z.value = (z.__value = c(j).code) ?? "");
             }), A(T, z);
         });
         var _;
-        Lo(y);
-        var w = b(y, 2), P = v(w);
+        Lo(g);
+        var w = b(g, 2), N = v(w);
         {
-            var I = (T)=>{
+            var P = (T)=>{
                 var j = ic();
                 A(T, j);
-            }, L = (T)=>{
+            }, D = (T)=>{
                 var j = oc();
                 A(T, j);
             };
-            Y(P, (T)=>{
-                c(o) === "light" ? T(I) : T(L, !1);
+            $(N, (T)=>{
+                c(o) === "light" ? T(P) : T(D, !1);
             });
         }
-        var E = b(h, 4), M = v(E), C = b(f, 2);
+        var E = b(h, 4), L = v(E), M = b(f, 2);
         {
             var K = (T)=>{
                 var j = ac(), z = v(j), ee = v(z);
-                D(()=>m(ee, c(n))), A(T, j);
+                R(()=>m(ee, c(n))), A(T, j);
             }, q = (T)=>{
                 var j = sc(), z = v(j), ee = v(z);
-                D((_e)=>m(ee, _e), [
-                    ()=>g("loading")
+                R((_e)=>m(ee, _e), [
+                    ()=>y("loading")
                 ]), A(T, j);
-            }, $ = (T)=>{
+            }, Y = (T)=>{
                 var j = lc(), z = et(j);
                 {
                     var ee = (G)=>{
@@ -3344,17 +3344,17 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                             onDismiss: ()=>p(a, !1)
                         });
                     };
-                    Y(z, (G)=>{
+                    $(z, (G)=>{
                         c(a) && G(ee);
                     });
                 }
                 var _e = b(z, 2), Ne = v(_e);
-                let $e;
+                let Ye;
                 var pt = v(Ne), He = b(Ne, 2);
-                let R;
+                let O;
                 var W = v(He), U = b(He, 2);
                 let x;
-                var N = v(U), V = b(U, 2);
+                var C = v(U), V = b(U, 2);
                 let J;
                 var ie = v(V), de = b(V, 2);
                 let ge;
@@ -3371,43 +3371,43 @@ Enjoy using KeychainPGP!`, ks = "Language", Es = {
                     }, fe = (G)=>{
                         rc(G, {});
                     };
-                    Y(je, (G)=>{
+                    $(je, (G)=>{
                         c(i) === "encrypt" ? G(te) : c(i) === "decrypt" ? G(ce, 1) : c(i) === "sign" ? G(Q, 2) : c(i) === "verify" ? G(ue, 3) : c(i) === "keys" && G(fe, 4);
                     });
                 }
-                D((G, Ee, ye, Te, ae)=>{
-                    $e = gt(Ne, 1, "tab", null, $e, {
+                R((G, Ee, ye, Te, ae)=>{
+                    Ye = gt(Ne, 1, "tab", null, Ye, {
                         active: c(i) === "encrypt"
-                    }), m(pt, G), R = gt(He, 1, "tab", null, R, {
+                    }), m(pt, G), O = gt(He, 1, "tab", null, O, {
                         active: c(i) === "decrypt"
                     }), m(W, Ee), x = gt(U, 1, "tab", null, x, {
                         active: c(i) === "sign"
-                    }), m(N, ye), J = gt(V, 1, "tab", null, J, {
+                    }), m(C, ye), J = gt(V, 1, "tab", null, J, {
                         active: c(i) === "verify"
                     }), m(ie, Te), ge = gt(de, 1, "tab", null, ge, {
                         active: c(i) === "keys"
                     }), m(le, ae);
                 }, [
-                    ()=>g("tab_encrypt"),
-                    ()=>g("tab_decrypt"),
-                    ()=>g("tab_sign"),
-                    ()=>g("tab_verify"),
-                    ()=>g("tab_keys")
+                    ()=>y("tab_encrypt"),
+                    ()=>y("tab_decrypt"),
+                    ()=>y("tab_sign"),
+                    ()=>y("tab_verify"),
+                    ()=>y("tab_keys")
                 ]), X("click", Ne, ()=>p(i, "encrypt")), X("click", He, ()=>p(i, "decrypt")), X("click", U, ()=>p(i, "sign")), X("click", V, ()=>p(i, "verify")), X("click", de, ()=>p(i, "keys")), A(T, j);
             };
-            Y(C, (T)=>{
-                c(n) ? T(K) : c(r) ? T($, !1) : T(q, 1);
+            $(M, (T)=>{
+                c(n) ? T(K) : c(r) ? T(Y, !1) : T(q, 1);
             });
         }
-        var Se = b(C, 2), De = v(Se), F = v(De);
-        D((T, j, z, ee)=>{
-            _ !== (_ = T) && (y.value = (y.__value = T) ?? "", Qn(y, T)), Oe(w, "title", j), m(M, z), m(F, ee);
+        var Se = b(M, 2), De = v(Se), F = v(De);
+        R((T, j, z, ee)=>{
+            _ !== (_ = T) && (g.value = (g.__value = T) ?? "", Qn(g, T)), Oe(w, "title", j), m(L, z), m(F, ee);
         }, [
             Rs,
-            ()=>c(o) === "light" ? g("theme_light") : g("theme_dark"),
-            ()=>g("app_subtitle"),
-            ()=>g("app_footer")
-        ]), X("change", y, l), X("click", w, s), A(e, d), dt();
+            ()=>c(o) === "light" ? y("theme_light") : y("theme_dark"),
+            ()=>y("app_subtitle"),
+            ()=>y("app_footer")
+        ]), X("change", g, l), X("click", w, s), A(e, d), dt();
     }
     Pt([
         "change",
