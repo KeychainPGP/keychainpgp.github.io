@@ -2191,7 +2191,7 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
             __proto__: null,
             "./keychainpgp_wasm_bg.js": {
                 __proto__: null,
-                __wbg_Error_4577686b3a6d9b3a: function(t, r) {
+                __wbg_Error_83742b46f01ce22d: function(t, r) {
                     const n = Error(wt(t, r));
                     return ie(n);
                 },
@@ -2199,23 +2199,23 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                     const n = String(ee(r)), i = ke(n, k.__wbindgen_export, k.__wbindgen_export2), o = he;
                     ne().setInt32(t + 4, o, !0), ne().setInt32(t + 0, i, !0);
                 },
-                __wbg___wbindgen_is_function_d633e708baf0d146: function(t) {
+                __wbg___wbindgen_is_function_3c846841762788c1: function(t) {
                     return typeof ee(t) == "function";
                 },
-                __wbg___wbindgen_is_object_4b3de556756ee8a8: function(t) {
+                __wbg___wbindgen_is_object_781bc9f159099513: function(t) {
                     const r = ee(t);
                     return typeof r == "object" && r !== null;
                 },
-                __wbg___wbindgen_is_string_7debe47dc1e045c2: function(t) {
+                __wbg___wbindgen_is_string_7ef6b97b02428fae: function(t) {
                     return typeof ee(t) == "string";
                 },
-                __wbg___wbindgen_is_undefined_c18285b9fc34cb7d: function(t) {
+                __wbg___wbindgen_is_undefined_52709e72fb9f179c: function(t) {
                     return ee(t) === void 0;
                 },
-                __wbg___wbindgen_throw_39bc967c0e5a9b58: function(t, r) {
+                __wbg___wbindgen_throw_6ddd609b62940d55: function(t, r) {
                     throw new Error(wt(t, r));
                 },
-                __wbg_call_08ad0d89caa7cb79: function() {
+                __wbg_call_2d781c1f4d5c0ef8: function() {
                     return ir(function(t, r, n) {
                         const i = ee(t).call(ee(r), ee(n));
                         return ie(i);
@@ -2233,7 +2233,7 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                         k.__wbindgen_export4(n, i, 1);
                     }
                 },
-                __wbg_from_d7e888a2e9063b32: function(t) {
+                __wbg_from_4bdf88943703fd48: function(t) {
                     const r = Array.from(ee(t));
                     return ie(r);
                 },
@@ -2242,36 +2242,36 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                         ee(t).getRandomValues(ee(r));
                     }, arguments);
                 },
-                __wbg_getTime_9429d05129287418: function(t) {
+                __wbg_getTime_1dad7b5386ddd2d9: function(t) {
                     return ee(t).getTime();
                 },
-                __wbg_length_5855c1f289dfffc1: function(t) {
+                __wbg_length_ea16607d7b61445b: function(t) {
                     return ee(t).length;
                 },
                 __wbg_msCrypto_bd5a034af96bcba6: function(t) {
                     const r = ee(t).msCrypto;
                     return ie(r);
                 },
-                __wbg_new_09959f7b4c92c246: function(t) {
-                    const r = new Uint8Array(ee(t));
-                    return ie(r);
-                },
-                __wbg_new_0_a719938e6f92ddf4: function() {
+                __wbg_new_0_1dcafdf5e786e876: function() {
                     return ie(new Date);
                 },
                 __wbg_new_227d7c05414eb861: function() {
                     const t = new Error;
                     return ie(t);
                 },
-                __wbg_new_cbee8c0d5c479eac: function() {
+                __wbg_new_5f486cdf45a04d78: function(t) {
+                    const r = new Uint8Array(ee(t));
+                    return ie(r);
+                },
+                __wbg_new_a70fbab9066b301f: function() {
                     const t = new Array;
                     return ie(t);
                 },
-                __wbg_new_ed69e637b553a997: function() {
+                __wbg_new_ab79df5bd7c26067: function() {
                     const t = new Object;
                     return ie(t);
                 },
-                __wbg_new_with_length_c8449d782396d344: function(t) {
+                __wbg_new_with_length_825018a1616e9e55: function(t) {
                     const r = new Uint8Array(t >>> 0);
                     return ie(r);
                 },
@@ -2283,7 +2283,7 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                     const r = ee(t).process;
                     return ie(r);
                 },
-                __wbg_prototypesetcall_f034d444741426c3: function(t, r, n) {
+                __wbg_prototypesetcall_d62e5099504357e6: function(t, r, n) {
                     Uint8Array.prototype.set.call(ln(t, r), ee(n));
                 },
                 __wbg_randomFillSync_6c25eac9869eb53c: function() {
@@ -2297,7 +2297,7 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                         return ie(t);
                     }, arguments);
                 },
-                __wbg_set_4c81cfb5dc3a333c: function(t, r, n) {
+                __wbg_set_282384002438957f: function(t, r, n) {
                     ee(t)[r >>> 0] = Ie(n);
                 },
                 __wbg_set_6be42768c690e380: function(t, r, n) {
@@ -2307,23 +2307,23 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
                     const n = ee(r).stack, i = ke(n, k.__wbindgen_export, k.__wbindgen_export2), o = he;
                     ne().setInt32(t + 4, o, !0), ne().setInt32(t + 0, i, !0);
                 },
-                __wbg_static_accessor_GLOBAL_THIS_14325d8cca34bb77: function() {
-                    const t = typeof globalThis > "u" ? null : globalThis;
-                    return xt(t) ? 0 : ie(t);
-                },
-                __wbg_static_accessor_GLOBAL_f3a1e69f9c5a7e8e: function() {
+                __wbg_static_accessor_GLOBAL_8adb955bd33fac2f: function() {
                     const t = typeof global > "u" ? null : global;
                     return xt(t) ? 0 : ie(t);
                 },
-                __wbg_static_accessor_SELF_50cdb5b517789aca: function() {
+                __wbg_static_accessor_GLOBAL_THIS_ad356e0db91c7913: function() {
+                    const t = typeof globalThis > "u" ? null : globalThis;
+                    return xt(t) ? 0 : ie(t);
+                },
+                __wbg_static_accessor_SELF_f207c857566db248: function() {
                     const t = typeof self > "u" ? null : self;
                     return xt(t) ? 0 : ie(t);
                 },
-                __wbg_static_accessor_WINDOW_d6c4126e4c244380: function() {
+                __wbg_static_accessor_WINDOW_bb9f1ba69d61b386: function() {
                     const t = typeof window > "u" ? null : window;
                     return xt(t) ? 0 : ie(t);
                 },
-                __wbg_subarray_7ad5f01d4a9c1c4d: function(t, r, n) {
+                __wbg_subarray_a068d24e39478a8a: function(t, r, n) {
                     const i = ee(t).subarray(r >>> 0, n >>> 0);
                     return ie(i);
                 },
@@ -2465,7 +2465,7 @@ Enjoy using KeychainPGP!`, Ps = "Language", Is = {
     }
     async function Js(e) {
         if (k !== void 0) return k;
-        e !== void 0 && (Object.getPrototypeOf(e) === Object.prototype ? { module_or_path: e } = e : console.warn("using deprecated parameters for the initialization function; pass a single object instead")), e === void 0 && (e = new URL("" + new URL("keychainpgp_wasm_bg-DF543aH-.wasm", import.meta.url).href, import.meta.url));
+        e !== void 0 && (Object.getPrototypeOf(e) === Object.prototype ? { module_or_path: e } = e : console.warn("using deprecated parameters for the initialization function; pass a single object instead")), e === void 0 && (e = new URL("" + new URL("keychainpgp_wasm_bg-_dJ8jH7Y.wasm", import.meta.url).href, import.meta.url));
         const t = Bs();
         (typeof e == "string" || typeof Request == "function" && e instanceof Request || typeof URL == "function" && e instanceof URL) && (e = fetch(e));
         const { instance: r, module: n } = await Xs(await e, t);
